@@ -1,4 +1,4 @@
-#N canvas 785 136 785 862 10;
+#N canvas 644 136 785 862 10;
 #X declare -lib ofelia;
 #X obj 36 79 loadbang;
 #X text 90 409 This example was originally written in Processing. https://processing.org/examples/mouse2d.html
@@ -186,12 +186,11 @@ box.;
 #X obj 493 263 + 1;
 #X obj 520 263 mod 2;
 #X obj 155 674 t b b b;
-#X obj 155 572 ofelia f \$0-receiveEmbindPrint \; return powLua \;
-;
 #X obj 155 458 ofelia d \$0-receiveEmbind \; local m = require("\$0-receiveEmbindPrint")
 \; function function_4() \; print("table: " \, table.unpack(powLua))
 \; if type(m.bang) == "function" then \; return m:bang() \; end \;
 end \;;
+#X obj 155 572 ofelia f \$0-receiveEmbindPrint \; powLua \;;
 #X connect 0 0 8 0;
 #X connect 4 0 5 0;
 #X connect 5 0 10 0;
@@ -266,4 +265,4 @@ end \;;
 #X connect 69 0 27 0;
 #X connect 69 1 20 0;
 #X connect 69 2 26 0;
-#X connect 70 0 28 0;
+#X connect 71 0 28 0;
