@@ -1195,6 +1195,7 @@ private:
                     case OFXOSC_TYPE_MIDI_MESSAGE:
                         SETFLOAT(av + 1 + i, static_cast<t_float>(m.getArgAsMidiMessage(i)));
                         break;
+
                     case OFXOSC_TYPE_TRUE:
                         SETFLOAT(av + 1 + i, 1.0f);
                         break;
@@ -1216,7 +1217,6 @@ private:
     double pollingInterval;
     ofxOscReceiver receiver;
 };
-
 static void pdSysGui(std::string str)
 {
     str += '\n';
@@ -1232,9 +1232,33 @@ class pdEM_ASM
 {
 public:
   pdEM_ASM(){}; 
+  std::vector<float> arrTemp;
+  std::vector<float> sendVarFloatArray(std::string str)   
+    {     
+    int count = 0;    
+    lua_getglobal(ofxOfeliaLua::L, str.c_str());
+    lua_pushnil(ofxOfeliaLua::L);
+      while(lua_next(ofxOfeliaLua::L, -2)) 
+      { 
+        if(lua_isnumber(ofxOfeliaLua::L, -1)) 
+        {
+        float i = (float)lua_tonumber(ofxOfeliaLua::L, -1);
+        arrTemp[count] = i; count++;  
+        }
+      lua_pop(ofxOfeliaLua::L, 1);
+      }
+    lua_pop(ofxOfeliaLua::L, 1);
+    reverse(begin(arrTemp), end(arrTemp));
+    float* arr = &arrTemp[0];
+    EM_ASM_(
+    var data = new Float32Array(HEAPF32.buffer, $1, $2); 
+    window[UTF8ToString($0)] = data, str.c_str(), arr, count
+    );
+    return arrTemp;       
+    }
     void sendIntArray(std::string str, int note, int velocity, int pitch)
-    {       
-        EM_ASM_(window[UTF8ToString($0)] = ([$1, $2, $3]), str.c_str(), note, velocity, pitch);
+    {
+        EM_ASM_(window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
     }
     void sendInt(std::string str, int number)
     {
@@ -1263,13 +1287,13 @@ public:
 private:
 };
 
-static float pdEmbind_1()
+static float pdEmbind_1() 
 {
     extern float embind_bind_1;
     return embind_bind_1;
 }
 
-static float pdEmbind_2()
+static float pdEmbind_2() 
 {
     extern float embind_bind_2;
     return embind_bind_2;
@@ -1279,6 +1303,12 @@ static float pdEmbind_3()
 {
     extern float embind_bind_3;
     return embind_bind_3;
+}
+
+static double pdEpochTimeMillis()
+{
+    double now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    return now;
 }
 
 static int pdGetBlockSize()

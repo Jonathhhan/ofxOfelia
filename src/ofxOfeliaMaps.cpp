@@ -1774,6 +1774,7 @@ void ofxOfeliaMaps::init()
     {
         {"ofSysGui",{{{4},{}},0}},
         {"ofEmscriptenRunScript",{{{4},{}},0}},
+        {"ofEpochTimeMillis",{{{}},1}},
         {"ofGetBlockSize",{{{}},1}},
         {"ofEmbind_1",{{{}},1}},
         {"ofEmbind_2",{{{}},1}},
@@ -1838,7 +1839,8 @@ void ofxOfeliaMaps::init()
             {"remove",{{{4},{}},1}},
             {"", {{},0}}}
         },
-        {"ofEM_ASM",{            
+        {"ofEM_ASM",{        
+            {"sendVarFloatArray",{{{4},{}},0}},    
             {"sendIntArray",{{{4,3,3,3},{}},0}},
             {"sendInt",{{{4,3},{}},1}},
             {"receiveInt",{{{4},{}},1}},
