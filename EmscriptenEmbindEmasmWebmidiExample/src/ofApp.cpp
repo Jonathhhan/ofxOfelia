@@ -9,16 +9,15 @@ std::vector<float> embind_bind_4;
 std::vector<float> function_4(const std::vector<float> &values)
 {  
   embind_bind_4 = values;
-  float* arr = &embind_bind_4[0];
+  float* arr = &embind_bind_4[0]; 
+  lua_getglobal(ofxOfeliaLua::L, "function_4");
   lua_newtable(ofxOfeliaLua::L);              // table 
   for (int i=0; i<values.size(); i++) {
     lua_pushinteger(ofxOfeliaLua::L, i+1);    // table,key 
     lua_pushinteger(ofxOfeliaLua::L, arr[i]); // table,key,value  
     lua_settable(ofxOfeliaLua::L,-3);         // table
-  }
-  lua_setglobal(ofxOfeliaLua::L, "powLua");
-  lua_getglobal(ofxOfeliaLua::L, "function_4");   
-  lua_call(ofxOfeliaLua::L, 0, 0);    
+  }  
+  lua_call(ofxOfeliaLua::L, 1, 1);
   return embind_bind_4;     
 }
 
