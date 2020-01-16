@@ -1,4 +1,4 @@
-#N canvas 644 136 785 862 10;
+#N canvas 657 191 797 777 10;
 #X declare -lib ofelia;
 #X obj 36 79 loadbang;
 #X text 90 409 This example was originally written in Processing. https://processing.org/examples/mouse2d.html
@@ -26,19 +26,19 @@ box.;
 #A __set function M.bang() \; local t = {ofEmbind_1() \, ofEmbind_2()
 \, ofEmbind_3()} \; return t \; end \;;
 #X obj 136 222 unpack f f f;
-#X text 292 763 return a single value;
-#X obj 155 631 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X text 254 685 return a single value;
+#X obj 117 553 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X msg 174 697 symbol hello;
+#X msg 136 619 symbol hello;
 #X obj 136 199 t l l;
-#X obj 155 805 print ofEmbind_1;
-#X obj 155 651 metro 2000;
-#X obj 260 697 print ofEM_ASM:receiveInt;
-#X obj 174 720 ofelia f \; ofEM_ASM():sendSymbol("word" \, a) \;;
-#X obj 260 661 ofelia f \; return ofEM_ASM():receiveInt("G") \;;
-#X obj 155 756 ofelia f \; print(ofEmbind_1()) \; return ofEmbind_1()
+#X obj 117 727 print ofEmbind_1;
+#X obj 117 573 metro 2000;
+#X obj 223 618 print ofEM_ASM:receiveInt;
+#X obj 136 642 ofelia f \; ofEM_ASM():sendSymbol("word" \, a) \;;
+#X obj 223 581 ofelia f \; return ofEM_ASM():receiveInt("G") \;;
+#X obj 117 678 ofelia f \; print(ofEmbind_1()) \; return ofEmbind_1()
 \;;
-#X obj 155 608 print powLua;
+#X obj 117 530 print powLua;
 #X floatatom 520 457 5 0 0 0 - - -;
 #X obj 488 127 nbx 5 14 -1e+37 1e+37 0 1 empty bpm bpm 0 -8 0 10 -262130
 -1 -1 160 256;
@@ -185,12 +185,10 @@ box.;
 #X obj 466 263 f;
 #X obj 493 263 + 1;
 #X obj 520 263 mod 2;
-#X obj 155 674 t b b b;
-#X obj 155 458 ofelia d \$0-receiveEmbind \; local m = require("\$0-receiveEmbindPrint")
-\; function function_4() \; print("table: " \, table.unpack(powLua))
-\; if type(m.bang) == "function" then \; return m:bang() \; end \;
-end \;;
-#X obj 155 572 ofelia f \$0-receiveEmbindPrint \; powLua \;;
+#X obj 117 596 t b b b;
+#X obj 117 455 ofelia d \$0-EmbindReceive \; function function_4(powLua)
+\; print("table" \, table.unpack(powLua)) \; return powLua \; end \;
+;
 #X connect 0 0 8 0;
 #X connect 4 0 5 0;
 #X connect 5 0 10 0;
@@ -265,4 +263,4 @@ end \;;
 #X connect 69 0 27 0;
 #X connect 69 1 20 0;
 #X connect 69 2 26 0;
-#X connect 71 0 28 0;
+#X connect 70 0 28 0;
