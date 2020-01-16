@@ -17,7 +17,7 @@ std::vector<float> function_4(const std::vector<float> &values)
     lua_pushinteger(ofxOfeliaLua::L, arr[i]); // table,key,value  
     lua_settable(ofxOfeliaLua::L,-3);         // table
   }  
-  lua_call(ofxOfeliaLua::L, 1, 1);
+  lua_call(ofxOfeliaLua::L, 1, 0);
   return embind_bind_4;     
 }
 
