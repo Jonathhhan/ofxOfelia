@@ -1,0 +1,167 @@
+#N canvas 680 215 1149 708 12;
+#X declare -lib ofelia;
+#X obj 380 641 hip~ 5;
+#X obj 398 358 tabread4~ \$0-sample;
+#X obj 379 408 *~ 0.5;
+#X obj 380 666 dac~;
+#X obj 71 343 array define \$0-sample;
+#X obj 82 443 array size \$0-sample;
+#X obj 59 368 list length;
+#X obj 27 493 array set \$0-sample;
+#X obj 27 343 t l l;
+#X obj 409 33 r \$0-sampleSize;
+#X obj 59 468 s \$0-sampleSize;
+#X obj 379 283 cos~;
+#X obj 398 333 +~ 1;
+#X obj 427 108 samplerate~;
+#X obj 27 268 ofKeyPressed;
+#X obj 27 293 sel 108;
+#X obj 427 83 loadbang;
+#X obj 379 183 phasor~ 0;
+#X obj 398 308 *~ 0;
+#X obj 379 383 *~;
+#X obj 27 83 ofWindow;
+#X obj 27 108 ofSetup;
+#X obj 27 133 ofBackground 51;
+#X msg 27 58 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 983 338 declare -lib ofelia, f 20;
+#X obj 379 133 f;
+#X obj 379 108 t b f;
+#X obj 379 158 * 1;
+#X obj 380 583 +~;
+#X obj 398 558 *~ 0.7;
+#X obj 379 258 *~ 0.01;
+#X obj 379 233 -~ 0.01;
+#X obj 391 433 mtof;
+#X obj 391 458 pack 0 50;
+#X obj 391 483 line~;
+#X obj 379 508 bob~;
+#X obj 409 159 /;
+#X obj 409 133 f;
+#X obj 398 533 delread~ \$0-G02-del 0;
+#X obj 399 616 delwrite~ \$0-G02-del 1000;
+#X obj 59 393 t f f f;
+#N canvas 445 355 690 357 embindFloatControl 0;
+#X obj 202 230 change;
+#X obj 360 140 change;
+#X obj 45 305 outlet;
+#X obj 202 255 outlet;
+#X obj 360 165 outlet;
+#X obj 518 140 change;
+#X obj 45 75 t b b b b, f 68;
+#X obj 518 165 outlet;
+#X obj 360 100 ofelia f \; return embind_3 \;;
+#X obj 518 100 ofelia f \; return embind_4 \;;
+#X obj 45 100 ofelia d \; local embind = 0 \; function embind_1(f)
+\; embind = f \; end \; function M.bang() \; return embind \; end \;
+;
+#X obj 202 100 ofelia d \; local embind = 0 \; function embind_2(f)
+\; embind = f \; end \; function M.bang() \; return embind \; end \;
+;
+#X obj 45 50 metro 10;
+#X obj 45 255 change;
+#X obj 45 230 * 100;
+#X obj 45 280 / 100;
+#X obj 45 25 loadbang;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 5 0 7 0;
+#X connect 6 0 10 0;
+#X connect 6 1 11 0;
+#X connect 6 2 8 0;
+#X connect 6 3 9 0;
+#X connect 8 0 1 0;
+#X connect 9 0 5 0;
+#X connect 10 0 14 0;
+#X connect 11 0 0 0;
+#X connect 12 0 6 0;
+#X connect 13 0 15 0;
+#X connect 14 0 13 0;
+#X connect 15 0 2 0;
+#X connect 16 0 12 0;
+#X restore 253 33 pd embindFloatControl;
+#X obj 542 313 ofDraw;
+#X obj 644 313 ofMouseMoved;
+#X obj 542 338 list append 0 0;
+#X obj 27 318 ofelia d -k \$0-embindReceiveWav;
+#A __set local wav = {0} \; function embind_5(table) \; wav = table
+\; end \; function M.bang() \; return wav \; end \;;
+#X obj 27 33 loadbang;
+#X obj 27 183 ofelia f \; testImage = ofImage() \; testImage:allocate(1
+\, 1 \, OF_IMAGE_COLOR_ALPHA) \; testImage:setColor(ofColor(200 \,
+50 \, 50 \, 200)) \; testImage:update() \;;
+#X f 48;
+#X obj 542 363 ofelia f \; local x \, y = a[1] \, a[2] \; local inverseX
+\, inverseY = ofGetWidth() - x \, ofGetHeight() - y \; testImage:draw(x
+\, ofGetHeight() / 2 \, y / 2 + 10 \, y / 2 + 10) \; testImage:draw(inverseX
+\, ofGetHeight() / 2 \, inverseY / 2 + 10 \, inverseY / 2 + 10) \;
+;
+#X f 83;
+#X obj 27 158 ofSetRectMode 1;
+#X obj 409 58 t b f f;
+#X obj 542 33 ofelia d \$0-embindReceiveBitmap \; function embind_6(w
+\, h \, pixel) \; testImage:allocate(w \, h \, OF_IMAGE_COLOR_ALPHA)
+\; print("bitmap array size:" \, #pixel \, "bitmap width:" \, w \,
+"bitmap height:" \, h) \; local count = 0 \; for i = 0 \, h - 1 do
+\; count = count + w -((w >> 2) << 2) \; for j = 0 \, w - 1 do \; ofPushStyle()
+\; testImage:setColor(j \, h - i \, ofColor(pixel[(i * w + j) * 3 +
+54 + count] \, pixel[(i * w + j) * 3 + 55 + count] \, pixel[(i * w
++ j) * 3 + 56 + count] \, 200)) \; ofPopStyle() \; end \; end \; testImage:update()
+\; end \;;
+#X f 73;
+#X obj 105 418 print wav array size;
+#X obj 378 209 *~ 0;
+#X connect 0 0 3 0;
+#X connect 0 0 3 1;
+#X connect 1 0 19 1;
+#X connect 2 0 35 0;
+#X connect 6 0 40 0;
+#X connect 8 0 7 0;
+#X connect 8 1 6 0;
+#X connect 9 0 50 0;
+#X connect 11 0 19 0;
+#X connect 12 0 1 0;
+#X connect 13 0 37 1;
+#X connect 14 0 15 0;
+#X connect 15 0 45 0;
+#X connect 16 0 13 0;
+#X connect 17 0 53 0;
+#X connect 18 0 12 0;
+#X connect 19 0 2 0;
+#X connect 21 0 22 0;
+#X connect 22 0 49 0;
+#X connect 23 0 20 0;
+#X connect 25 0 27 0;
+#X connect 26 0 25 0;
+#X connect 26 1 27 1;
+#X connect 27 0 17 0;
+#X connect 28 0 0 0;
+#X connect 28 0 39 0;
+#X connect 29 0 28 1;
+#X connect 30 0 11 0;
+#X connect 31 0 30 0;
+#X connect 32 0 33 0;
+#X connect 33 0 34 0;
+#X connect 34 0 35 1;
+#X connect 35 0 28 0;
+#X connect 36 0 25 0;
+#X connect 37 0 36 0;
+#X connect 38 0 29 0;
+#X connect 40 0 10 0;
+#X connect 40 1 5 0;
+#X connect 40 2 52 0;
+#X connect 41 0 26 0;
+#X connect 41 1 32 0;
+#X connect 41 2 38 0;
+#X connect 41 3 53 1;
+#X connect 42 0 44 0;
+#X connect 43 0 44 1;
+#X connect 44 0 48 0;
+#X connect 45 0 8 0;
+#X connect 46 0 23 0;
+#X connect 49 0 47 0;
+#X connect 50 0 37 0;
+#X connect 50 1 36 1;
+#X connect 50 2 18 1;
+#X connect 53 0 18 0;
+#X connect 53 0 31 0;
