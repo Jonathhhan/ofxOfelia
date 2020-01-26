@@ -402,10 +402,6 @@ int main(int argc, char *argv[])
     mapper.addFunctionToRename({"pdUnZip", "ofUnZip"});
     mapper.addFunctionToRename({"pdEmscriptenRunScript", "ofEmscriptenRunScript"});
     mapper.addFunctionToRename({"pdEM_ASM", "ofEM_ASM"});
-    mapper.addFunctionToRename({"pdEmbind_1", "ofEmbind_1"});
-    mapper.addFunctionToRename({"pdEmbind_2", "ofEmbind_2"});
-    mapper.addFunctionToRename({"pdEmbind_3", "ofEmbind_3"});
-    mapper.addFunctionToRename({"pdEpochTimeMillis", "ofEpochTimeMillis"});
     /* start writing the file */
     ostringstream ss;
     ss <<
