@@ -109,11 +109,11 @@ Object.defineProperty(window, "arr", {
 <b>Outputs Ports: </b><select id="midiOut"><option>-no MIDI-</option></select></p>
 <b>MIDI Messages: <b id="midi-data" onchange="updateMIDI(value)">0,0,0</b></p> 
 <b>GM Instrument MIDI Out Channel 1:</b></p>
-<select id='ins' onchange="selectIns(this)"></select></p>
+<select id='ins' onChange="selectIns(this)"></select></p>
 <script type="text/javascript" src="midi.js"></script>
 <br>
 <strong>Start MIDI sequence: </strong>
-<input type="checkbox" id="startSequence" onchange="updateStartSequence();">
+<input type="checkbox" id="startSequence" onChange="updateStartSequence();">
 <br>
 <br>
 <strong>Tempo: </strong>
@@ -151,8 +151,12 @@ function calculate_3() {
 </script>
 <br>
 <strong>Choose bmp :</strong>
-<input type="file" name="Submit" onchange="encodeImageFileAsDataURL(this)" />
+<input type="file" name="Submit" onChange="encodeImageFileAsDataURL(this)" />
 <br>
+<br>
+<small>Change [r, g, b, a] of the bmp with MIDI control change 176/14, 176/15, 176/16, 176/17.<br>
+Those are, for example, the first 4 dials of the Nanokontrol 1.
+</small>
 <script>
 function updateStartSequence() {
   var input = document.getElementById ("startSequence");
