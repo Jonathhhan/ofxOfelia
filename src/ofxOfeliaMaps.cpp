@@ -1774,11 +1774,7 @@ void ofxOfeliaMaps::init()
     {
         {"ofSysGui",{{{4},{}},0}},
         {"ofEmscriptenRunScript",{{{4},{}},0}},
-        {"ofEpochTimeMillis",{{{}},1}},
         {"ofGetBlockSize",{{{}},1}},
-        {"ofEmbind_1",{{{}},1}},
-        {"ofEmbind_2",{{{}},1}},
-        {"ofEmbind_3",{{{}},1}},
         {"ofGetSampleRate",{{{}},1}},
         {"ofGetNumInChannels",{{{}},1}},
         {"ofGetNumOutChannels",{{{}},1}},

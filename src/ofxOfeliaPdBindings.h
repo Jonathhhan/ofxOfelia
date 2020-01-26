@@ -1228,20 +1228,16 @@ static void pdEmscriptenRunScript(std::string str)
     emscripten_run_script(const_cast<char*>(str.c_str()));
 }
 
-class pdEM_ASM
-{
+class pdEM_ASM {
 public:
   pdEM_ASM(){}; 
   std::vector<float> arrTemp;
-  std::vector<float> sendVarFloatArray(std::string str)   
-    {     
+  std::vector<float> sendVarFloatArray(std::string str) {     
     int count = 0;    
     lua_getglobal(ofxOfeliaLua::L, str.c_str());
     lua_pushnil(ofxOfeliaLua::L);
-      while(lua_next(ofxOfeliaLua::L, -2)) 
-      { 
-        if(lua_isnumber(ofxOfeliaLua::L, -1)) 
-        {
+    while(lua_next(ofxOfeliaLua::L, -2)) { 
+      if(lua_isnumber(ofxOfeliaLua::L, -1)) {
         float i = (float)lua_tonumber(ofxOfeliaLua::L, -1);
         arrTemp[count] = i; count++;  
         }
@@ -1256,60 +1252,29 @@ public:
     );
     return arrTemp;       
     }
-    void sendIntArray(std::string str, int note, int velocity, int pitch)
-    {
-        EM_ASM_(window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
+
+  void sendIntArray(std::string str, int note, int velocity, int pitch) {
+    EM_ASM_(window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
     }
-    void sendInt(std::string str, int number)
-    {
-        EM_ASM_(window[UTF8ToString($0)] = ($1), str.c_str(), number);
+
+  void sendInt(std::string str, int number) {
+    EM_ASM_(window[UTF8ToString($0)] = ($1), str.c_str(), number);
     }
-    int receiveInt(std::string str)
-    {
-        return EM_ASM_INT(return window[UTF8ToString($0)], str.c_str());
+
+  void sendFloatArray(std::string str, float note, float velocity, float pitch) {
+    EM_ASM_(window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
     }
-    void sendFloatArray(std::string str, float note, float velocity, float pitch)
-    {
-        EM_ASM_(window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
+
+  void sendFloat(std::string str, float number) {    
+    EM_ASM_(window[UTF8ToString($0)] = ($1), str.c_str(), number);
     }
-    void sendFloat(std::string str, float number)
-    {    
-        EM_ASM_(window[UTF8ToString($0)] = ($1), str.c_str(), number);
+
+  void sendSymbol(std::string str, std::string str2) {    
+    EM_ASM_(window[UTF8ToString($0)] = (UTF8ToString($1)), str.c_str(), str2.c_str());
     }
-    float receiveFloat(std::string str)
-    {
-        return EM_ASM_DOUBLE(return window[UTF8ToString($0)], str.c_str());
-    }
-    void sendSymbol(std::string str, std::string str2)
-    {    
-        EM_ASM_(window[UTF8ToString($0)] = (UTF8ToString($1)), str.c_str(), str2.c_str());
-    }
+
 private:
 };
-
-static float pdEmbind_1() 
-{
-    extern float embind_bind_1;
-    return embind_bind_1;
-}
-
-static float pdEmbind_2() 
-{
-    extern float embind_bind_2;
-    return embind_bind_2;
-}
-
-static float pdEmbind_3()
-{
-    extern float embind_bind_3;
-    return embind_bind_3;
-}
-
-static double pdEpochTimeMillis()
-{
-    double now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-    return now;
-}
 
 static int pdGetBlockSize()
 {
