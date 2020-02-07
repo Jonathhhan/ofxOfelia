@@ -1,0 +1,407 @@
+#N canvas 368 409 578 644 12;
+#X declare -lib ofelia;
+#X obj 138 537 hip~ 5;
+#X obj 156 284 tabread4~ \$0-sample;
+#X obj 137 334 *~ 0.5;
+#X obj 138 607 dac~;
+#X obj 346 117 array define \$0-sample;
+#X obj 357 217 array size \$0-sample;
+#X obj 334 142 list length;
+#X obj 302 267 array set \$0-sample;
+#X obj 302 117 t l l;
+#X obj 188 27 r \$0-sampleSize;
+#X obj 334 242 s \$0-sampleSize;
+#X obj 98 284 cos~;
+#X obj 156 259 +~ 1;
+#X obj 206 102 samplerate~;
+#X obj 302 27 ofKeyPressed;
+#X obj 302 52 sel 108;
+#X obj 206 77 loadbang;
+#X obj 158 177 phasor~ 0;
+#X obj 156 234 *~ 0;
+#X obj 137 309 *~;
+#X obj 402 417 declare -lib ofelia, f 20;
+#X obj 158 127 f;
+#X obj 158 102 t b f;
+#X obj 158 152 * 1;
+#X obj 137 469 +~;
+#X obj 168 444 *~ 0.7;
+#X obj 98 259 *~ 0.01;
+#X obj 98 234 -~ 0.01;
+#X obj 188 309 mtof;
+#X obj 188 334 pack 0 50;
+#X obj 188 359 line~;
+#X obj 137 394 bob~;
+#X obj 188 153 /;
+#X obj 188 127 f;
+#X obj 167 419 delread~ \$0-G02-del 0;
+#X obj 189 537 delwrite~ \$0-G02-del 1000;
+#X obj 334 167 t f f f;
+#N canvas 67 638 880 357 embindFloatControl 0;
+#X obj 202 230 change;
+#X obj 360 140 change;
+#X obj 45 305 outlet;
+#X obj 202 255 outlet;
+#X obj 360 165 outlet;
+#X obj 518 140 change;
+#X obj 518 165 outlet;
+#X obj 360 100 ofelia f \; return embind_3 \;;
+#X obj 518 100 ofelia f \; return embind_4 \;;
+#X obj 45 100 ofelia d \; local embind = 0 \; function embind_1(f)
+\; embind = f \; end \; function M.bang() \; return embind \; end \;
+;
+#X obj 202 100 ofelia d \; local embind = 0 \; function embind_2(f)
+\; embind = f \; end \; function M.bang() \; return embind \; end \;
+;
+#X obj 45 50 metro 10;
+#X obj 45 255 change;
+#X obj 45 230 * 100;
+#X obj 45 280 / 100;
+#X obj 45 25 loadbang;
+#X obj 45 75 t b b b b b, f 91;
+#X obj 679 140 change;
+#X obj 679 165 outlet;
+#X obj 679 100 ofelia f \; return embind_11 \;;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 5 0 6 0;
+#X connect 7 0 1 0;
+#X connect 8 0 5 0;
+#X connect 9 0 13 0;
+#X connect 10 0 0 0;
+#X connect 11 0 16 0;
+#X connect 12 0 14 0;
+#X connect 13 0 12 0;
+#X connect 14 0 2 0;
+#X connect 15 0 11 0;
+#X connect 16 0 9 0;
+#X connect 16 1 10 0;
+#X connect 16 2 7 0;
+#X connect 16 3 8 0;
+#X connect 16 4 19 0;
+#X connect 17 0 18 0;
+#X connect 19 0 17 0;
+#X restore 32 27 pd embindFloatControl;
+#X obj 188 52 t b f f;
+#X obj 380 192 print wav array size;
+#X obj 157 203 *~ 0;
+#N canvas 67 337 538 410 plot 0;
+#X obj 35 26 inlet~;
+#X obj 86 76 inlet;
+#X obj 35 101 rfft~;
+#X obj 35 126 *~;
+#X obj 68 126 *~;
+#X obj 35 151 sqrt~;
+#X obj 35 230 rmstodb~;
+#X obj 35 255 max~ 20;
+#X obj 35 280 -~ 20;
+#X obj 35 305 /~ 80;
+#X obj 35 205 *~;
+#X obj 151 259 *~;
+#X obj 130 126 == 0;
+#X obj 169 126 != 0;
+#X obj 130 76 inlet;
+#X obj 35 330 *~ 256;
+#X obj 35 355 tabwrite~ \$0-magnitude;
+#X obj 130 101 t f f, f 6;
+#X obj 35 180 /~ 256;
+#X obj 119 330 block~ 512;
+#X msg 312 185 0;
+#X obj 206 234 osc~;
+#X obj 206 186 samplerate~;
+#X obj 206 257 *~ -0.5;
+#X obj 206 280 +~ 0.5;
+#X obj 198 305 tabwrite~ \$0-hann;
+#X obj 198 163 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 254 232 period 512;
+#X text 218 138 recalculate Hann;
+#X text 253 153 window table;
+#X obj 206 210 / 512;
+#X obj 198 355 array define -yrange 0 255 \$0-magnitude 256;
+#X obj 53 51 tabreceive~ \$0-hann;
+#X obj 35 76 *~;
+#X obj 198 330 array define -k -yrange 0 1 \$0-hann 512;
+#A 0 0 3.76403e-05 0.000150591 0.000338793 0.000602275 0.000940949
+0.00135478 0.00184369 0.00240764 0.00304651 0.00376022 0.00454867 0.00541174
+0.0063493 0.00736117 0.00844723 0.00960734 0.0108413 0.0121489 0.01353
+0.0149843 0.0165117 0.0181119 0.0197847 0.0215298 0.0233469 0.0252359
+0.0271963 0.0292279 0.0313304 0.0335035 0.0357469 0.0380601 0.040443
+0.042895 0.0454159 0.0480052 0.0506626 0.0533877 0.05618 0.0590392
+0.0619648 0.0649563 0.0680134 0.0711355 0.0743222 0.077573 0.0808874
+0.0842649 0.0877051 0.0912073 0.0947711 0.0983959 0.102081 0.105826
+0.109631 0.113494 0.117416 0.121395 0.125431 0.129524 0.133672 0.137876
+0.142134 0.146446 0.150811 0.155229 0.159699 0.16422 0.168792 0.173413
+0.178084 0.182803 0.18757 0.192384 0.197244 0.20215 0.2071 0.212095
+0.217133 0.222214 0.227337 0.2325 0.237704 0.242948 0.24823 0.25355
+0.258907 0.264301 0.26973 0.275194 0.280691 0.286222 0.291785 0.297379
+0.303003 0.308658 0.314341 0.320052 0.32579 0.331555 0.337344 0.343159
+0.348997 0.354857 0.36074 0.366643 0.372567 0.37851 0.384471 0.390449
+0.396444 0.402455 0.40848 0.414519 0.420571 0.426635 0.432709 0.438794
+0.444889 0.450991 0.457101 0.463218 0.46934 0.475466 0.481596 0.487729
+0.493864 0.5 0.506136 0.512271 0.518404 0.524534 0.53066 0.536782 0.542899
+0.549009 0.555111 0.561205 0.56729 0.573365 0.579429 0.585481 0.59152
+0.597545 0.603556 0.609551 0.615529 0.62149 0.627433 0.633357 0.63926
+0.645143 0.651003 0.656841 0.662656 0.668445 0.67421 0.679948 0.685659
+0.691342 0.696997 0.702621 0.708215 0.713778 0.719309 0.724806 0.73027
+0.735699 0.741092 0.74645 0.75177 0.757052 0.762295 0.767499 0.772663
+0.777786 0.782867 0.787905 0.7929 0.79785 0.802756 0.807616 0.812431
+0.817197 0.821916 0.826587 0.831209 0.83578 0.840301 0.844771 0.849189
+0.853554 0.857866 0.862124 0.866328 0.870476 0.874569 0.878605 0.882584
+0.886506 0.890369 0.894174 0.897919 0.901605 0.905229 0.908793 0.912295
+0.915736 0.919113 0.922428 0.925678 0.928865 0.931987 0.935044 0.938036
+0.940961 0.94382 0.946613 0.949338 0.951995 0.954585 0.957106 0.959558
+0.96194 0.964254 0.966497 0.96867 0.970773 0.972804 0.974765 0.976654
+0.978471 0.980216 0.981889 0.983489 0.985016 0.98647 0.987852 0.989159
+0.990393 0.991553 0.992639 0.993651 0.994589 0.995452 0.99624 0.996954
+0.997593 0.998156 0.998645 0.999059 0.999398 0.999661 0.999849 0.999962
+1 0.999962 0.999849 0.999661 0.999398 0.999059 0.998645 0.998156 0.997592
+0.996953 0.996239 0.995451 0.994588 0.99365 0.992638 0.991552 0.990392
+0.989158 0.987851 0.986469 0.985015 0.983488 0.981887 0.980215 0.978469
+0.976652 0.974763 0.972803 0.970771 0.968669 0.966495 0.964252 0.961939
+0.959556 0.957104 0.954583 0.951993 0.949336 0.946611 0.943818 0.940959
+0.938034 0.935042 0.931985 0.928863 0.925676 0.922425 0.919111 0.915733
+0.912293 0.908791 0.905227 0.901602 0.897917 0.894171 0.890367 0.886503
+0.882582 0.878602 0.874566 0.870473 0.866325 0.862121 0.857863 0.853551
+0.849186 0.844768 0.840298 0.835777 0.831205 0.826584 0.821913 0.817194
+0.812427 0.807613 0.802753 0.797847 0.792896 0.787901 0.782863 0.777782
+0.77266 0.767496 0.762292 0.757048 0.751766 0.746446 0.741089 0.735695
+0.730266 0.724802 0.719305 0.713774 0.708211 0.702617 0.696993 0.691338
+0.685655 0.679944 0.674206 0.668441 0.662652 0.656837 0.650999 0.645139
+0.639256 0.633353 0.627429 0.621486 0.615525 0.609547 0.603552 0.597541
+0.591516 0.585477 0.579425 0.573361 0.567286 0.561201 0.555107 0.549004
+0.542894 0.536778 0.530656 0.52453 0.518399 0.512266 0.506131 0.499996
+0.49386 0.487725 0.481592 0.475462 0.469335 0.463213 0.457097 0.450987
+0.444884 0.43879 0.432705 0.42663 0.420566 0.414515 0.408476 0.40245
+0.39644 0.390445 0.384466 0.378505 0.372563 0.366639 0.360736 0.354853
+0.348993 0.343155 0.33734 0.331551 0.325786 0.320048 0.314337 0.308654
+0.302999 0.297375 0.291781 0.286218 0.280687 0.27519 0.269726 0.264297
+0.258904 0.253547 0.248226 0.242944 0.237701 0.232497 0.227333 0.222211
+0.21713 0.212092 0.207097 0.202146 0.19724 0.19238 0.187566 0.182799
+0.17808 0.17341 0.168788 0.164217 0.159696 0.155226 0.150808 0.146443
+0.142131 0.137873 0.133669 0.129521 0.125428 0.121392 0.117413 0.113491
+0.109628 0.105823 0.102078 0.0983929 0.0947681 0.0912043 0.0877021
+0.084262 0.0808845 0.0775701 0.0743194 0.0711327 0.0680107 0.0649537
+0.0619622 0.0590366 0.0561775 0.0533852 0.0506602 0.0480028 0.0454136
+0.0428927 0.0404407 0.038058 0.0357447 0.0335014 0.0313284 0.0292259
+0.0271944 0.025234 0.0233451 0.0215281 0.019783 0.0181103 0.0165102
+0.0149829 0.0135286 0.0121476 0.01084 0.00960615 0.0084461 0.0073601
+0.00634828 0.00541082 0.00454783 0.00375944 0.00304583 0.00240701 0.00184315
+0.00135431 0.000940561 0.000601947 0.000338584 0.000150442 3.75807e-05
+;
+#X connect 0 0 33 0;
+#X connect 1 0 16 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 2 1 4 0;
+#X connect 2 1 4 1;
+#X connect 3 0 5 0;
+#X connect 4 0 5 0;
+#X connect 5 0 18 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 15 0;
+#X connect 10 0 6 0;
+#X connect 11 0 16 0;
+#X connect 12 0 10 1;
+#X connect 13 0 11 1;
+#X connect 14 0 17 0;
+#X connect 15 0 16 0;
+#X connect 17 0 12 0;
+#X connect 17 1 13 0;
+#X connect 18 0 10 0;
+#X connect 18 0 11 0;
+#X connect 20 0 21 1;
+#X connect 21 0 23 0;
+#X connect 22 0 30 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 26 0 22 0;
+#X connect 26 0 20 0;
+#X connect 26 0 25 0;
+#X connect 30 0 21 0;
+#X connect 32 0 33 1;
+#X connect 33 0 2 0;
+#X restore 175 607 pd plot;
+#X obj 221 587 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 198 562 ofUpdate;
+#X obj 351 292 ofMouseMoved;
+#X obj 351 367 list prepend mouseMoved;
+#X msg 359 342 400 300;
+#X obj 351 392 list trim;
+#X obj 359 317 loadbang;
+#N canvas 827 304 797 381 Kal 0;
+#X msg 45 214 Kaleidoscope2_Sides \$1;
+#X msg 402 215 Kaleidoscope2_SlideX \$1;
+#X obj 45 325 outlet;
+#X obj 45 99 t b b b b, f 77;
+#X obj 45 74 metro 10;
+#X obj 45 124 ofelia f \; return embind_7 \;;
+#X obj 223 124 ofelia f \; return embind_8 \;;
+#X obj 402 124 ofelia f \; return embind_9 \;;
+#X obj 581 124 ofelia f \; return embind_10 \;;
+#X msg 223 214 Kaleidoscope2_Angle \$1;
+#X msg 581 215 Kaleidoscope2_SlideY \$1;
+#X obj 45 49 loadbang;
+#X obj 45 164 f 8;
+#X obj 223 164 f 0;
+#X obj 402 165 f 0;
+#X obj 581 164 f 0;
+#X obj 45 189 change 10000;
+#X obj 223 189 change 10000;
+#X obj 402 190 change 10000;
+#X obj 581 190 change 10000;
+#X connect 0 0 2 0;
+#X connect 1 0 2 0;
+#X connect 3 0 5 0;
+#X connect 3 1 6 0;
+#X connect 3 2 7 0;
+#X connect 3 3 8 0;
+#X connect 4 0 3 0;
+#X connect 5 0 12 0;
+#X connect 6 0 13 0;
+#X connect 7 0 14 0;
+#X connect 8 0 15 0;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;
+#X connect 11 0 4 0;
+#X connect 12 0 16 0;
+#X connect 13 0 17 0;
+#X connect 14 0 18 0;
+#X connect 15 0 19 0;
+#X connect 16 0 0 0;
+#X connect 17 0 9 0;
+#X connect 18 0 1 0;
+#X connect 19 0 10 0;
+#X restore 351 417 pd Kal;
+#X obj 351 442 ofelia d -k \$0-patch;
+#A __set if type(window) ~= "userdata" then \; window = ofWindow()
+\; end \; \; local array = ofArray("\$0-magnitude") \; local image
+= ofImage() \; local spectrum = ofImage() \; local canvas = ofCanvas(this)
+\; local clock = ofClock(this \, "setup") \; local shaderDir = canvas:getDir()
+.. "/data/" \; local shader_1 = ofShader() \; local shader_2 = ofShader()
+\; local fbo_1 = ofFbo() \; local fbo_2 = ofFbo() \; \; function ofelia.new()
+\; ofWindow.addListener("setup" \, this) \; ofWindow.addListener("draw"
+\, this) \; ofWindow.addListener("exit" \, this) \; window:setPosition(30
+\, 100) \; window:setSize(800 \, 600) \; if ofWindow.exists then \;
+clock:delay(0) \; else \; window:create() \; end \; end \; \; function
+ofelia.free() \; window:destroy() \; ofWindow.removeListener("setup"
+\, this) \; ofWindow.removeListener("draw" \, this) \; ofWindow.removeListener("exit"
+\, this) \; end \; \; function ofelia.setup() \; ofSetWindowTitle("Shader
+Test") \; ofSetFrameRate(30) \; spectrum:allocate(256 \, 1 \, OF_IMAGE_GRAYSCALE)
+\; spectrum:setColor(ofColor(0)) \; spectrum:update() \; image:allocate(800
+\, 600 \, OF_IMAGE_COLOR_ALPHA) \; image:setColor(ofColor(200 \, 50
+\, 50 \, 200)) \; image:update() \; fbo_1:allocate(800 \, 600) \; fbo_1:beginFbo()
+\; ofClear(255 \, 255 \, 255 \, 0) \; fbo_1:endFbo() \; fbo_2:allocate(800
+\, 600) \; fbo_2:beginFbo() \; ofClear(255 \, 255 \, 255 \, 0) \; fbo_2:endFbo()
+\; shader_1:load(shaderDir .. "a") \; shader_2:load(shaderDir .. "Kaleidoscope2")
+\; end \; \; function embind_6(w \, h \, pixel) \; image:allocate(w
+\, h \, OF_IMAGE_COLOR_ALPHA) \; print("bitmap array size:" \, #pixel
+\, "bitmap width:" \, w \, "bitmap height:" \, h) \; local count_1
+= 0 \; local count_2 = h \; local count_3 = 0 \; for i = 1 \, h do
+\; count_1 = count_1 + (w -((w >> 2) << 2)) * i \; end \; for i = 0
+\, w * h - 1 do \; if i % w == 0 then \; count_2 = count_2 - 1 \; count_3
+= count_3 + w -((w >> 2) << 2) \; end \; image:setColor(i % w \, count_2
+\, ofColor(pixel[i * 3 + 54 + count_3] \, pixel[i * 3 + 55 + count_3]
+\, pixel[i * 3 + 56 + count_3] \, 200)) \; end \; image:update() \;
+end \; \; function ofelia.draw() \; local x \, y = M.mouseMoved[1]
+\, M.mouseMoved[2] \; local inverseX \, inverseY = ofGetWidth() - x
+\, ofGetHeight() - y \; for i = 0 \, 255 do \; spectrum:setColor(i
+\, 0 \, ofColor(array:getAt(i))) \; end \; spectrum:update() \; shader_1:beginShader()
+\; shader_1:setUniform1f("time" \, ofGetElapsedTimef()) \; shader_1:setUniform2f("resolution"
+\, ofGetWindowWidth() \, ofGetWindowHeight()) \; shader_1:setUniformTexture("spectrum"
+\, spectrum:getTexture() \, 0) \; shader_1:setUniformTexture("image"
+\, image:getTexture() \, 1) \; fbo_1:beginFbo() \; ofDrawRectangle(0
+\, 0 \, 800 \, 600) \; fbo_1:endFbo() \; shader_1:endShader() \; shader_2:beginShader()
+\; shader_2:setUniform2f("resolution" \, ofGetWindowWidth() \, ofGetWindowHeight())
+\; shader_2:setUniform2f("center" \, ofGetWindowWidth()/2 \, ofGetWindowHeight()/2)
+\; shader_2:setUniform1f("Kaleidoscope2_Sides" \, ofelia.Kaleidoscope2_Sides)
+\; shader_2:setUniform1f("Kaleidoscope2_Angle" \, ofelia.Kaleidoscope2_Angle
+/ 100) \; shader_2:setUniform1f("Kaleidoscope2_SlideX" \, ofelia.Kaleidoscope2_SlideX
+/ 100) \; shader_2:setUniform1f("Kaleidoscope2_SlideY" \, ofelia.Kaleidoscope2_SlideY
+/ 100) \; shader_2:setUniformTexture("fbo" \, fbo_1:getTexture() \,
+0) \; fbo_2:beginFbo() \; fbo_1:draw(0 \, 0 \, 800 \, 600) \; fbo_2:endFbo()
+\; shader_2:endShader() \; fbo_2:draw(0 \, 0 \, 800 \, 600) \; image:draw((ofGetWidth()
+- image:getWidth()) / 2 \, (ofGetHeight() - image:getHeight()) / 2
+\, image:getWidth() \, image:getHeight()) \; ofTranslate(- (y / 2 +
+10) / 2 \, 0 \, 0) \; fbo_1:draw(x \, ofGetHeight() / 2 - (y / 2 +
+10) / 2 \, y / 2 + 10 \, y / 2 + 10) \; fbo_1:draw(inverseX \, ofGetHeight()
+/ 2 - (inverseY / 2 + 10) / 2 \, inverseY / 2 + 10 \, inverseY / 2
++ 10) \; end \; \; function ofelia.exit() \; image:clear() \; spectrum:clear()
+\; shader_1:unload() \; shader_2:unload() \; end \; \;;
+#X f 21;
+#X obj 138 444 *~;
+#X obj 75 469 *~;
+#X obj 93 419 - 1;
+#X obj 93 444 * -1;
+#X obj 137 512 +~;
+#X obj 93 394 t f f;
+#X obj 93 369 / 100;
+#X obj 302 77 ofelia f \; return embind_5 \;;
+#X connect 0 0 3 0;
+#X connect 0 0 3 1;
+#X connect 0 0 41 0;
+#X connect 1 0 19 1;
+#X connect 2 0 31 0;
+#X connect 6 0 36 0;
+#X connect 8 0 7 0;
+#X connect 8 1 6 0;
+#X connect 9 0 38 0;
+#X connect 11 0 19 0;
+#X connect 12 0 1 0;
+#X connect 13 0 33 1;
+#X connect 14 0 15 0;
+#X connect 15 0 58 0;
+#X connect 16 0 13 0;
+#X connect 17 0 40 0;
+#X connect 18 0 12 0;
+#X connect 19 0 2 0;
+#X connect 21 0 23 0;
+#X connect 22 0 21 0;
+#X connect 22 1 23 1;
+#X connect 23 0 17 0;
+#X connect 24 0 35 0;
+#X connect 24 0 55 0;
+#X connect 25 0 24 1;
+#X connect 26 0 11 0;
+#X connect 27 0 26 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 1;
+#X connect 31 0 52 0;
+#X connect 31 0 51 0;
+#X connect 32 0 21 0;
+#X connect 33 0 32 0;
+#X connect 34 0 25 0;
+#X connect 36 0 10 0;
+#X connect 36 1 5 0;
+#X connect 36 2 39 0;
+#X connect 37 0 22 0;
+#X connect 37 1 28 0;
+#X connect 37 2 34 0;
+#X connect 37 3 40 1;
+#X connect 37 4 57 0;
+#X connect 38 0 33 0;
+#X connect 38 1 32 1;
+#X connect 38 2 18 1;
+#X connect 40 0 18 0;
+#X connect 40 0 27 0;
+#X connect 42 0 41 2;
+#X connect 43 0 41 1;
+#X connect 44 0 45 0;
+#X connect 45 0 47 0;
+#X connect 46 0 45 0;
+#X connect 47 0 50 0;
+#X connect 48 0 46 0;
+#X connect 49 0 50 0;
+#X connect 51 0 24 0;
+#X connect 52 0 55 1;
+#X connect 53 0 54 0;
+#X connect 54 0 52 1;
+#X connect 55 0 0 0;
+#X connect 56 0 53 0;
+#X connect 56 1 51 1;
+#X connect 57 0 56 0;
+#X connect 58 0 8 0;
