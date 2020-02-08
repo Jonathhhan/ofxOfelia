@@ -1,15 +1,13 @@
 #include "ofApp.h"  
 
-void embind_1(float embind1) {
-  lua_getglobal(ofxOfeliaLua::L, "embind_1"); 
-  lua_pushnumber(ofxOfeliaLua::L, embind1);
-  lua_call(ofxOfeliaLua::L, 1, 0); 
+void embind_1(float embind1) { 
+  lua_pushnumber(ofxOfeliaLua::L, embind1);  
+  lua_setglobal(ofxOfeliaLua::L, "embind_1");
   }
 
 void embind_2(float embind2) {
-  lua_getglobal(ofxOfeliaLua::L, "embind_2"); 
-  lua_pushnumber(ofxOfeliaLua::L, embind2); 
-  lua_call(ofxOfeliaLua::L, 1, 0); 
+  lua_pushnumber(ofxOfeliaLua::L, embind2);  
+  lua_setglobal(ofxOfeliaLua::L, "embind_2");
   }
 
 void embind_3(float embind3) { 
@@ -58,7 +56,7 @@ void embind_5(const emscripten::val &embind_5) {
     lua_pushnumber(ofxOfeliaLua::L, rv[i]); 
     lua_rawseti(ofxOfeliaLua::L, -2, i+1);
     }   
-  lua_setglobal(ofxOfeliaLua::L, "embind_5");        
+  lua_setglobal(ofxOfeliaLua::L, "embind_5");       
   }   
  
 void embind_6(int width, int height, const emscripten::val &embind_6) {   
@@ -75,7 +73,7 @@ void embind_6(int width, int height, const emscripten::val &embind_6) {
     lua_pushnumber(ofxOfeliaLua::L, rv[i]); 
     lua_rawseti(ofxOfeliaLua::L, -2, i+1);
     }      
-  lua_call(ofxOfeliaLua::L, 3, 0);  
+  lua_call(ofxOfeliaLua::L, 3, 0); 
   }  
 
 EMSCRIPTEN_BINDINGS(my_module) {    
