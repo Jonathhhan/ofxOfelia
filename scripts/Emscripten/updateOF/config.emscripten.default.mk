@@ -90,7 +90,7 @@ ifdef USE_CCACHE
 	endif
 endif
 
-PLATFORM_LDFLAGS = -Wl,--as-needed -Wl,--gc-sections --preload-file bin/data@data --emrun --bind -s ALLOW_MEMORY_GROWTH=1 -s TOTAL_MEMORY=1GB -s WASM=1 --profiling-funcs -s  ASSERTIONS=2 -s SAFE_HEAP=1 -s DISABLE_DEPRECATED_FIND_EVENT_TARGET_BEHAVIOR=0
+PLATFORM_LDFLAGS = -Wl,--as-needed -Wl,--gc-sections --preload-file bin/data@data --emrun --bind  --profiling-funcs -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s TOTAL_MEMORY=1920MB -s  ASSERTIONS=2 -s SAFE_HEAP=1 -s DISABLE_DEPRECATED_FIND_EVENT_TARGET_BEHAVIOR=0 -s ERROR_ON_UNDEFINED_SYMBOLS=0
 PLATFORM_LDFLAGS += --js-library $(OF_ADDONS_PATH)/ofxEmscripten/libs/html5video/lib/emscripten/library_html5video.js
 PLATFORM_LDFLAGS += --js-library $(OF_ADDONS_PATH)/ofxEmscripten/libs/html5audio/lib/emscripten/library_html5audio.js
 
