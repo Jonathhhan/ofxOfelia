@@ -12,7 +12,7 @@ void embind_2(float embind2) {
 
 void embind_3(float embind3) { 
   lua_pushnumber(ofxOfeliaLua::L, embind3);  
-  lua_setglobal(ofxOfeliaLua::L, "embind_3");
+  lua_setglobal(ofxOfeliaLua::L, "embind_3");    
   }
 
 void embind_4(float embind4) {
@@ -31,32 +31,35 @@ void embind_8(float embind8) {
   }
 
 void embind_9(float embind9) { 
-  lua_pushnumber(ofxOfeliaLua::L, embind9);  
-  lua_setglobal(ofxOfeliaLua::L, "embind_9");
+  lua_pushnumber(ofxOfeliaLua::L, embind9);   
+  lua_setglobal(ofxOfeliaLua::L, "embind_9"); 
   }
 
 void embind_10(float embind10) {
   lua_pushnumber(ofxOfeliaLua::L, embind10);   
-  lua_setglobal(ofxOfeliaLua::L, "embind_10");
+  lua_setglobal(ofxOfeliaLua::L, "embind_10"); 
   }
 
-void embind_11(float embind11) {
-  lua_pushnumber(ofxOfeliaLua::L, embind11);   
-  lua_setglobal(ofxOfeliaLua::L, "embind_11");
+void embind_11(float embind11) {    
+  lua_pushnumber(ofxOfeliaLua::L, embind11);          
+  lua_setglobal(ofxOfeliaLua::L, "embind_11");      
   }
 
-void embind_5(const emscripten::val &embind_5) {               
-  std::vector<float> rv;  
-  const auto l = embind_5["length"].as<unsigned>();     
+void embind_5(const emscripten::val &embind_5) {                     
+  std::vector<float> rv;   
+  const auto l = embind_5["length"].as<unsigned>();      
   rv.resize(l);   
   emscripten::val memoryView{emscripten::typed_memory_view(l, rv.data())};        
-  memoryView.call<void>("set", embind_5);     
+  memoryView.call<void>("set", embind_5);  
+  lua_pushnil(ofxOfeliaLua::L);   
   lua_createtable(ofxOfeliaLua::L, 0, rv.size());  
   for (int i=0; i<rv.size(); i++) { 
-    lua_pushnumber(ofxOfeliaLua::L, rv[i]); 
-    lua_rawseti(ofxOfeliaLua::L, -2, i+1);
-    }   
-  lua_setglobal(ofxOfeliaLua::L, "embind_5");       
+    lua_pushnumber(ofxOfeliaLua::L, rv[i]);   
+    lua_rawseti(ofxOfeliaLua::L, -2, i+1);   
+    }  
+  lua_setglobal(ofxOfeliaLua::L, "wav");
+  lua_getglobal(ofxOfeliaLua::L, "embind_5");
+  lua_call(ofxOfeliaLua::L, 0, 0);       
   }   
  
 void embind_6(int width, int height, const emscripten::val &embind_6) {   
@@ -65,15 +68,17 @@ void embind_6(int width, int height, const emscripten::val &embind_6) {
   rv.resize(l);
   emscripten::val memoryView{emscripten::typed_memory_view(l, rv.data())};
   memoryView.call<void>("set", embind_6); 
-  lua_getglobal(ofxOfeliaLua::L, "embind_6");
-  lua_pushnumber(ofxOfeliaLua::L, width);
-  lua_pushnumber(ofxOfeliaLua::L, height);  
+  lua_pushnil(ofxOfeliaLua::L);  
   lua_createtable(ofxOfeliaLua::L, 0, rv.size());       
   for (int i=0; i<rv.size(); i++) { 
     lua_pushnumber(ofxOfeliaLua::L, rv[i]); 
     lua_rawseti(ofxOfeliaLua::L, -2, i+1);
     }      
-  lua_call(ofxOfeliaLua::L, 3, 0); 
+  lua_setglobal(ofxOfeliaLua::L, "pixel");
+  lua_getglobal(ofxOfeliaLua::L, "embind_6");
+  lua_pushnumber(ofxOfeliaLua::L, width);
+  lua_pushnumber(ofxOfeliaLua::L, height); 
+  lua_call(ofxOfeliaLua::L, 2, 0);   
   }  
 
 EMSCRIPTEN_BINDINGS(my_module) {    
@@ -81,7 +86,7 @@ EMSCRIPTEN_BINDINGS(my_module) {
   emscripten::function("embind_2", &embind_2);  
   emscripten::function("embind_3", &embind_3);
   emscripten::function("embind_4", &embind_4);
-  emscripten::function("embind_5", &embind_5); 
+  emscripten::function("embind_5", &embind_5);  
   emscripten::function("embind_6", &embind_6);
   emscripten::function("embind_7", &embind_7);
   emscripten::function("embind_8", &embind_8);
@@ -116,7 +121,7 @@ void ofApp::setup()
                      bOpenMidiInPort, bOpenMidiOutPort,
                      midiInPortNum, midiOutPortNum,
                      bOpenPatch, patchName))
-    {
+    {    
         OF_EXIT_APP(1);
     }   
     ofelia.setup();   
