@@ -1,16 +1,15 @@
-#N canvas 166 244 582 644 12;
+#N canvas 128 112 577 644 12;
 #X declare -lib ofelia;
 #X obj 138 537 hip~ 5;
 #X obj 156 284 tabread4~ \$0-sample;
 #X obj 137 334 *~ 0.5;
 #X obj 138 607 dac~;
-#X obj 346 132 array define \$0-sample;
-#X obj 357 232 array size \$0-sample;
-#X obj 334 157 list length;
-#X obj 302 282 array set \$0-sample;
-#X obj 302 132 t l l;
+#X obj 346 102 array define \$0-sample;
+#X obj 357 202 array size \$0-sample;
+#X obj 334 127 list length;
+#X obj 302 252 array set \$0-sample;
 #X obj 188 27 r \$0-sampleSize;
-#X obj 334 257 s \$0-sampleSize;
+#X obj 334 227 s \$0-sampleSize;
 #X obj 98 284 cos~;
 #X obj 156 259 +~ 1;
 #X obj 206 102 samplerate~;
@@ -20,7 +19,7 @@
 #X obj 158 177 phasor~ 0;
 #X obj 156 234 *~ 0;
 #X obj 137 309 *~;
-#X obj 402 432 declare -lib ofelia, f 20;
+#X obj 402 402 declare -lib ofelia, f 20;
 #X obj 158 127 f;
 #X obj 158 102 t b f;
 #X obj 158 152 * 1;
@@ -36,7 +35,7 @@
 #X obj 188 127 f;
 #X obj 175 419 delread~ \$0-G02-del 0;
 #X obj 189 537 delwrite~ \$0-G02-del 1000;
-#X obj 334 182 t f f f;
+#X obj 334 152 t f f f;
 #N canvas 248 492 474 269 embindFloatControl 0;
 #X obj 118 129 change;
 #X obj 196 129 change;
@@ -73,7 +72,7 @@
 #X connect 15 4 12 0;
 #X restore 32 27 pd embindFloatControl;
 #X obj 188 52 t b f f;
-#X obj 380 207 print wav array size;
+#X obj 380 177 print wav array size;
 #X obj 157 203 *~ 0;
 #N canvas 67 337 538 410 plot 0;
 #X obj 35 26 inlet~;
@@ -217,11 +216,11 @@
 #X obj 221 587 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 198 562 ofUpdate;
-#X obj 351 307 ofMouseMoved;
-#X obj 351 382 list prepend mouseMoved;
-#X msg 359 357 400 300;
-#X obj 351 407 list trim;
-#X obj 359 332 loadbang;
+#X obj 351 277 ofMouseMoved;
+#X obj 351 352 list prepend mouseMoved;
+#X msg 359 327 400 300;
+#X obj 351 377 list trim;
+#X obj 359 302 loadbang;
 #N canvas 827 304 797 381 Kal 0;
 #X msg 45 214 Kaleidoscope2_Sides \$1;
 #X msg 402 215 Kaleidoscope2_SlideX \$1;
@@ -265,8 +264,8 @@
 #X connect 17 0 9 0;
 #X connect 18 0 1 0;
 #X connect 19 0 10 0;
-#X restore 351 432 pd Kal;
-#X obj 351 457 ofelia d -k \$0-patch;
+#X restore 351 402 pd Kal;
+#X obj 351 427 ofelia d -k \$0-patch;
 #A __set if type(window) ~= "userdata" then \; window = ofWindow()
 \; end \; \; local array = ofArray("\$0-magnitude") \; local image
 = ofImage() \; local spectrum = ofImage() \; local canvas = ofCanvas(this)
@@ -287,24 +286,24 @@ Test") \; ofSetFrameRate(30) \; spectrum:allocate(256 \, 1 \, OF_IMAGE_GRAYSCALE
 \; ofClear(255 \, 255 \, 255 \, 0) \; fbo_1:endFbo() \; fbo_2:allocate(800
 \, 600) \; fbo_2:beginFbo() \; ofClear(255 \, 255 \, 255 \, 0) \; fbo_2:endFbo()
 \; shader_1:load(shaderDir .. "a") \; shader_2:load(shaderDir .. "Kaleidoscope2")
-\; end \; \; function embind_6(w \, h \, pixel) \; collectgarbage()
-\; image:allocate(w \, h \, OF_IMAGE_COLOR_ALPHA) \; print("bitmap
-array size:" \, #pixel \, "bitmap width:" \, w \, "bitmap height:"
-\, h) \; local count_1 = 0 \; local count_2 = h \; local count_3 =
-0 \; for i = 1 \, h do \; count_1 = count_1 + (w -((w >> 2) << 2))
-* i \; end \; for i = 0 \, w * h - 1 do \; if i % w == 0 then \; count_2
-= count_2 - 1 \; count_3 = count_3 + w -((w >> 2) << 2) \; end \; image:setColor(i
-% w \, count_2 \, ofColor(pixel[i * 3 + 54 + count_3] \, pixel[i *
-3 + 55 + count_3] \, pixel[i * 3 + 56 + count_3] \, 200)) \; end \;
-image:update() \; end \; \; function ofelia.draw() \; local x \, y
-= M.mouseMoved[1] \, M.mouseMoved[2] \; local inverseX \, inverseY
-= ofGetWidth() - x \, ofGetHeight() - y \; for i = 0 \, 255 do \; spectrum:setColor(i
-\, 0 \, ofColor(array:getAt(i))) \; end \; spectrum:update() \; shader_1:beginShader()
-\; shader_1:setUniform1f("time" \, ofGetElapsedTimef()) \; shader_1:setUniform2f("resolution"
-\, ofGetWindowWidth() \, ofGetWindowHeight()) \; shader_1:setUniformTexture("spectrum"
-\, spectrum:getTexture() \, 0) \; shader_1:setUniformTexture("image"
-\, image:getTexture() \, 1) \; fbo_1:beginFbo() \; ofDrawRectangle(0
-\, 0 \, 800 \, 600) \; fbo_1:endFbo() \; shader_1:endShader() \; shader_2:beginShader()
+\; end \; \; function embind_6(w \, h) \; image:allocate(w \, h \,
+OF_IMAGE_COLOR_ALPHA) \; print("bitmap array size:" \, #pixel \, "bitmap
+width:" \, w \, "bitmap height:" \, h) \; local count_1 = 0 \; local
+count_2 = h \; local count_3 = 0 \; for i = 1 \, h do \; count_1 =
+count_1 + (w -((w >> 2) << 2)) * i \; end \; for i = 0 \, w * h - 1
+do \; if i % w == 0 then \; count_2 = count_2 - 1 \; count_3 = count_3
++ w -((w >> 2) << 2) \; end \; image:setColor(i % w \, count_2 \, ofColor(pixel[i
+* 3 + 54 + count_3] \, pixel[i * 3 + 55 + count_3] \, pixel[i * 3 +
+56 + count_3] \, 200)) \; end \; image:update() \; end \; \; function
+ofelia.draw() \; local x \, y = M.mouseMoved[1] \, M.mouseMoved[2]
+\; local inverseX \, inverseY = ofGetWidth() - x \, ofGetHeight() -
+y \; for i = 0 \, 255 do \; spectrum:setColor(i \, 0 \, ofColor(array:getAt(i)))
+\; end \; spectrum:update() \; shader_1:beginShader() \; shader_1:setUniform1f("time"
+\, ofGetElapsedTimef()) \; shader_1:setUniform2f("resolution" \, ofGetWindowWidth()
+\, ofGetWindowHeight()) \; shader_1:setUniformTexture("spectrum" \,
+spectrum:getTexture() \, 0) \; shader_1:setUniformTexture("image" \,
+image:getTexture() \, 1) \; fbo_1:beginFbo() \; ofDrawRectangle(0 \,
+0 \, 800 \, 600) \; fbo_1:endFbo() \; shader_1:endShader() \; shader_2:beginShader()
 \; shader_2:setUniform2f("resolution" \, ofGetWindowWidth() \, ofGetWindowHeight())
 \; shader_2:setUniform2f("center" \, ofGetWindowWidth()/2 \, ofGetWindowHeight()/2)
 \; shader_2:setUniform1f("Kaleidoscope2_Sides" \, ofelia.Kaleidoscope2_Sides)
@@ -327,71 +326,74 @@ image:update() \; end \; \; function ofelia.draw() \; local x \, y
 #X obj 137 512 +~;
 #X obj 93 394 t f f;
 #X obj 93 369 / 100;
-#X obj 302 77 ofelia f \; collectgarbage() \; return embind_5 \;;
 #X obj 68 469 *~ 1;
 #X obj 138 444 *~ 0;
+#X obj 302 102 t l l;
+#X obj 302 77 ofelia d -k;
+#A __set function embind_5() \; end \; function M.bang() \; return
+wav \; end \;;
 #X connect 0 0 3 0;
 #X connect 0 0 3 1;
-#X connect 0 0 41 0;
-#X connect 1 0 19 1;
-#X connect 2 0 31 0;
-#X connect 6 0 36 0;
-#X connect 8 0 7 0;
-#X connect 8 1 6 0;
-#X connect 9 0 38 0;
-#X connect 11 0 19 0;
-#X connect 12 0 1 0;
-#X connect 13 0 33 1;
-#X connect 14 0 15 0;
-#X connect 15 0 56 0;
-#X connect 16 0 13 0;
-#X connect 17 0 40 0;
-#X connect 18 0 12 0;
-#X connect 19 0 2 0;
-#X connect 21 0 23 0;
-#X connect 22 0 21 0;
-#X connect 22 1 23 1;
-#X connect 23 0 17 0;
-#X connect 24 0 35 0;
-#X connect 24 0 53 0;
-#X connect 25 0 24 1;
-#X connect 26 0 11 0;
-#X connect 27 0 26 0;
+#X connect 0 0 40 0;
+#X connect 1 0 18 1;
+#X connect 2 0 30 0;
+#X connect 6 0 35 0;
+#X connect 8 0 37 0;
+#X connect 10 0 18 0;
+#X connect 11 0 1 0;
+#X connect 12 0 32 1;
+#X connect 13 0 14 0;
+#X connect 14 0 58 0;
+#X connect 15 0 12 0;
+#X connect 16 0 39 0;
+#X connect 17 0 11 0;
+#X connect 18 0 2 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 0;
+#X connect 21 1 22 1;
+#X connect 22 0 16 0;
+#X connect 23 0 34 0;
+#X connect 23 0 52 0;
+#X connect 24 0 23 1;
+#X connect 25 0 10 0;
+#X connect 26 0 25 0;
+#X connect 27 0 28 0;
 #X connect 28 0 29 0;
-#X connect 29 0 30 0;
-#X connect 30 0 31 1;
-#X connect 31 0 57 0;
-#X connect 31 0 58 0;
-#X connect 32 0 21 0;
-#X connect 33 0 32 0;
-#X connect 34 0 25 0;
-#X connect 36 0 10 0;
-#X connect 36 1 5 0;
-#X connect 36 2 39 0;
-#X connect 37 0 22 0;
-#X connect 37 1 28 0;
-#X connect 37 2 34 0;
-#X connect 37 3 40 1;
-#X connect 37 4 55 0;
-#X connect 38 0 33 0;
-#X connect 38 1 32 1;
-#X connect 38 2 18 1;
-#X connect 40 0 18 0;
-#X connect 40 0 27 0;
-#X connect 42 0 41 2;
-#X connect 43 0 41 1;
-#X connect 44 0 45 0;
-#X connect 45 0 47 0;
-#X connect 46 0 45 0;
-#X connect 47 0 50 0;
-#X connect 48 0 46 0;
-#X connect 49 0 50 0;
-#X connect 51 0 52 0;
-#X connect 52 0 57 1;
-#X connect 53 0 0 0;
-#X connect 54 0 51 0;
-#X connect 54 1 58 1;
-#X connect 55 0 54 0;
-#X connect 56 0 8 0;
-#X connect 57 0 53 1;
-#X connect 58 0 24 0;
+#X connect 29 0 30 1;
+#X connect 30 0 55 0;
+#X connect 30 0 56 0;
+#X connect 31 0 20 0;
+#X connect 32 0 31 0;
+#X connect 33 0 24 0;
+#X connect 35 0 9 0;
+#X connect 35 1 5 0;
+#X connect 35 2 38 0;
+#X connect 36 0 21 0;
+#X connect 36 1 27 0;
+#X connect 36 2 33 0;
+#X connect 36 3 39 1;
+#X connect 36 4 54 0;
+#X connect 37 0 32 0;
+#X connect 37 1 31 1;
+#X connect 37 2 17 1;
+#X connect 39 0 17 0;
+#X connect 39 0 26 0;
+#X connect 41 0 40 2;
+#X connect 42 0 40 1;
+#X connect 43 0 44 0;
+#X connect 44 0 46 0;
+#X connect 45 0 44 0;
+#X connect 46 0 49 0;
+#X connect 47 0 45 0;
+#X connect 48 0 49 0;
+#X connect 50 0 51 0;
+#X connect 51 0 55 1;
+#X connect 52 0 0 0;
+#X connect 53 0 50 0;
+#X connect 53 1 56 1;
+#X connect 54 0 53 0;
+#X connect 55 0 52 1;
+#X connect 56 0 23 0;
+#X connect 57 0 7 0;
+#X connect 57 1 6 0;
+#X connect 58 0 57 0;
