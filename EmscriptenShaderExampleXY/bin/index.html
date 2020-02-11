@@ -103,13 +103,13 @@ Module['postRun'] = function() {
 <br>
 <br>
 <strong>Play wav: </strong>
-<input type="checkbox" id="loop" onchange="updateToggle_loop();">
+<input type="checkbox" id="loop" onChange="updateToggle_loop();">
 <br>
 <br>
 <strong>Tempo: </strong>
 <form>
-<input type="range" id="Tempo" name="Tempo_range" min="-2" max="2" step="0.1" value="1"  oninput="calculate_1(), this.form.Tempo_input.value=this.value"/>
-<input type="number" name="Tempo_input" min="-2" max="2" step="0.1" value="1" oninput= "calculate_1(),this.form.Tempo_range.value=this.value"/>
+<input type="range" id="Tempo" name="Tempo_range" min="-2" max="2" step="0.1" value="1"  oninput="this.form.Tempo_input.value=this.value, calculate_1()"/>
+<input type="number" name="Tempo_input" min="-2" max="2" step="0.1" value="1" oninput= "this.form.Tempo_range.value=this.value, calculate_1()"/>
 </form>
 <br>
 <script>
@@ -119,8 +119,8 @@ function calculate_1() {
 </script>
 <strong>Lowpass: </strong>
 <form>
-<input type="range" id="Lowpass" name="Lowpass_range" min="1" max="125" step="1" value="125"  oninput="calculate_2(), this.form.Lowpass_input.value=this.value"/>
-<input type="number" name="Lowpass_input" min="1" max="125" value="125" oninput= "calculate_2(),this.form.Lowpass_range.value=this.value"/>
+<input type="range" id="Lowpass" name="Lowpass_range" min="1" max="125" step="1" value="125"  oninput=" this.form.Lowpass_input.value=this.value, calculate_2()"/>
+<input type="number" name="Lowpass_input" min="1" max="125" value="125" oninput= "this.form.Lowpass_range.value=this.value, calculate_2()"/>
 </form>
 <br>
 <script>
@@ -130,8 +130,8 @@ function calculate_2() {
 </script>
 <strong>Delay time: </strong>
 <form>
-<input type="range" id="Delay" name="Delay_range" min="0" max="500" step="1" value="0"  oninput="calculate_3(), this.form.Delay_input.value=this.value"/>
-<input type="number" name="Delay_input" min="0" max="500" value="0" oninput= "calculate_3(), this.form.Delay_range.value=this.value"/>
+<input type="range" id="Delay" name="Delay_range" min="0" max="500" step="1" value="0"  oninput=" this.form.Delay_input.value=this.value, calculate_3()"/>
+<input type="number" name="Delay_input" min="0" max="500" value="0" oninput= " this.form.Delay_range.value=this.value, calculate_3()"/>
 </form>
 <br>
 <script>
@@ -141,8 +141,8 @@ function calculate_3() {
 </script>
 <strong>Delay wet / dry: </strong>
 <form>
-<input type="range" id="Delay_wd" name="Delay_wd_range" min="0" max="100" step="1" value="0"  oninput="calculate_11(), this.form.Delay_wd_input.value=this.value"/>
-<input type="number" name="Delay_wd_input" min="0" max="100" value="0" oninput= "calculate_11(), this.form.Delay_wd_range.value=this.value"/>
+<input type="range" id="Delay_wd" name="Delay_wd_range" min="0" max="100" step="1" value="0"  oninput="this.form.Delay_wd_input.value=this.value, calculate_11()"/>
+<input type="number" name="Delay_wd_input" min="0" max="100" value="0" oninput= "this.form.Delay_wd_range.value=this.value, calculate_11()"/>
 </form>
 <br>
 <script>
@@ -152,7 +152,7 @@ function calculate_11() {
 </script>
 <br>
 <strong>Choose bmp:</strong>
-<input type="file" name="Submit" onchange="encodeImageFileAsDataURL(this)" />
+<input type="file" name="Submit" onChange="encodeImageFileAsDataURL(this)" />
 <br>
 <br>
 <strong>Sides: </strong>
