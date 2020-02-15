@@ -1230,27 +1230,24 @@ static void pdEmscriptenRunScript(std::string str)
 
 class pdEM_ASM {
 public:
-  pdEM_ASM(){}; 
-  std::vector<float> arrTemp;
-  std::vector<float> sendVarFloatArray(std::string str) {     
+ pdEM_ASM(){};   
+  std::vector<float> sendVarFloatArray(std::string str) {   
+    std::vector<float> arrTemp;  
     int count = 0;    
     lua_getglobal(ofxOfeliaLua::L, str.c_str());
-    lua_pushnil(ofxOfeliaLua::L);
-    while(lua_next(ofxOfeliaLua::L, -2)) { 
-      if(lua_isnumber(ofxOfeliaLua::L, -1)) {
-        float i = (float)lua_tonumber(ofxOfeliaLua::L, -1);
-        arrTemp[count] = i; count++;  
-        }
-      lua_pop(ofxOfeliaLua::L, 1);
-      }
-    lua_pop(ofxOfeliaLua::L, 1);
-    reverse(begin(arrTemp), end(arrTemp));
+    int len = lua_rawlen( ofxOfeliaLua::L, -1 );
+    for ( int i = 1; i <= len; ++i ) {
+        lua_pushinteger( ofxOfeliaLua::L, i );
+        lua_gettable( ofxOfeliaLua::L, -2 );
+        arrTemp.push_back( lua_tointeger( ofxOfeliaLua::L, -1 ) );
+        lua_pop( ofxOfeliaLua::L, 1 );
+    }
     float* arr = &arrTemp[0];
     EM_ASM_(
     var data = new Float32Array(HEAPF32.buffer, $1, $2); 
-    window[UTF8ToString($0)] = data, str.c_str(), arr, count
-    );
-    return arrTemp;       
+    window[UTF8ToString($0)] = data, str.c_str(), arr, len
+    );  
+    return arrTemp; 
     }
 
   void sendIntArray(std::string str, int note, int velocity, int pitch) {

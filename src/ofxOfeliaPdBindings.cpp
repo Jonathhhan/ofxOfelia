@@ -2717,10 +2717,11 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 #define SWIGTYPE_p_pdWindow swig_types[22]
 #define SWIGTYPE_p_std__dequeT_int_t swig_types[23]
 #define SWIGTYPE_p_std__string swig_types[24]
-#define SWIGTYPE_p_t_atom swig_types[25]
-#define SWIGTYPE_p_t_floatarg swig_types[26]
-static swig_type_info *swig_types[28];
-static swig_module_info swig_module = {swig_types, 27, 0, 0, 0, 0};
+#define SWIGTYPE_p_std__vectorT_float_t swig_types[25]
+#define SWIGTYPE_p_t_atom swig_types[26]
+#define SWIGTYPE_p_t_floatarg swig_types[27]
+static swig_type_info *swig_types[29];
+static swig_module_info swig_module = {swig_types, 28, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -5091,6 +5092,16 @@ static int _wrap_new_EM_ASM(lua_State* L) { int SWIG_arg = 0; pdEM_ASM *result =
   SWIG_check_num_args("pdEM_ASM::pdEM_ASM",0,0) result = (pdEM_ASM *)new pdEM_ASM();
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdEM_ASM,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
+static int _wrap_EM_ASM_sendVarFloatArray(lua_State* L) { int SWIG_arg = 0; pdEM_ASM *arg1 = (pdEM_ASM *) 0 ; std::string arg2 ;
+  SwigValueWrapper< std::vector< float > > result; SWIG_check_num_args("pdEM_ASM::sendVarFloatArray",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdEM_ASM::sendVarFloatArray",1,"pdEM_ASM *");
+  if(!lua_isstring(L,2)) SWIG_fail_arg("pdEM_ASM::sendVarFloatArray",2,"std::string");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdEM_ASM,0))){
+    SWIG_fail_ptr("EM_ASM_sendVarFloatArray",1,SWIGTYPE_p_pdEM_ASM); }  (&arg2)->assign(lua_tostring(L,2),lua_rawlen(L,2));
+  result = (arg1)->sendVarFloatArray(arg2); {
+    std::vector< float > * resultptr = new std::vector< float >((const std::vector< float > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_float_t,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
 static int _wrap_EM_ASM_sendIntArray(lua_State* L) { int SWIG_arg = 0; pdEM_ASM *arg1 = (pdEM_ASM *) 0 ; std::string arg2 ;
   int arg3 ; int arg4 ; int arg5 ; SWIG_check_num_args("pdEM_ASM::sendIntArray",5,5)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdEM_ASM::sendIntArray",1,"pdEM_ASM *");
@@ -5111,14 +5122,6 @@ static int _wrap_EM_ASM_sendInt(lua_State* L) { int SWIG_arg = 0; pdEM_ASM *arg1
     SWIG_fail_ptr("EM_ASM_sendInt",1,SWIGTYPE_p_pdEM_ASM); }  (&arg2)->assign(lua_tostring(L,2),lua_rawlen(L,2));
   arg3 = (int)lua_tonumber(L, 3); (arg1)->sendInt(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
-static int _wrap_EM_ASM_receiveInt(lua_State* L) { int SWIG_arg = 0; pdEM_ASM *arg1 = (pdEM_ASM *) 0 ; std::string arg2 ;
-  int result; SWIG_check_num_args("pdEM_ASM::receiveInt",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdEM_ASM::receiveInt",1,"pdEM_ASM *");
-  if(!lua_isstring(L,2)) SWIG_fail_arg("pdEM_ASM::receiveInt",2,"std::string");
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdEM_ASM,0))){
-    SWIG_fail_ptr("EM_ASM_receiveInt",1,SWIGTYPE_p_pdEM_ASM); }  (&arg2)->assign(lua_tostring(L,2),lua_rawlen(L,2));
-  result = (int)(arg1)->receiveInt(arg2); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
-  fail: lua_error(L); return SWIG_arg; }
 static int _wrap_EM_ASM_sendFloatArray(lua_State* L) { int SWIG_arg = 0; pdEM_ASM *arg1 = (pdEM_ASM *) 0 ; std::string arg2 ;
   float arg3 ; float arg4 ; float arg5 ; SWIG_check_num_args("pdEM_ASM::sendFloatArray",5,5)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdEM_ASM::sendFloatArray",1,"pdEM_ASM *");
@@ -5139,14 +5142,6 @@ static int _wrap_EM_ASM_sendFloat(lua_State* L) { int SWIG_arg = 0; pdEM_ASM *ar
     SWIG_fail_ptr("EM_ASM_sendFloat",1,SWIGTYPE_p_pdEM_ASM); }  (&arg2)->assign(lua_tostring(L,2),lua_rawlen(L,2));
   arg3 = (float)lua_tonumber(L, 3); (arg1)->sendFloat(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
-static int _wrap_EM_ASM_receiveFloat(lua_State* L) { int SWIG_arg = 0; pdEM_ASM *arg1 = (pdEM_ASM *) 0 ; std::string arg2 ;
-  float result; SWIG_check_num_args("pdEM_ASM::receiveFloat",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdEM_ASM::receiveFloat",1,"pdEM_ASM *");
-  if(!lua_isstring(L,2)) SWIG_fail_arg("pdEM_ASM::receiveFloat",2,"std::string");
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdEM_ASM,0))){
-    SWIG_fail_ptr("EM_ASM_receiveFloat",1,SWIGTYPE_p_pdEM_ASM); }  (&arg2)->assign(lua_tostring(L,2),lua_rawlen(L,2));
-  result = (float)(arg1)->receiveFloat(arg2); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_EM_ASM_sendSymbol(lua_State* L) { int SWIG_arg = 0; pdEM_ASM *arg1 = (pdEM_ASM *) 0 ; std::string arg2 ;
   std::string arg3 ; SWIG_check_num_args("pdEM_ASM::sendSymbol",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdEM_ASM::sendSymbol",1,"pdEM_ASM *");
@@ -5172,12 +5167,11 @@ static swig_lua_attribute swig_EM_ASM_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_EM_ASM_methods[]= {
+    { "sendVarFloatArray", _wrap_EM_ASM_sendVarFloatArray},
     { "sendIntArray", _wrap_EM_ASM_sendIntArray},
     { "sendInt", _wrap_EM_ASM_sendInt},
-    { "receiveInt", _wrap_EM_ASM_receiveInt},
     { "sendFloatArray", _wrap_EM_ASM_sendFloatArray},
     { "sendFloat", _wrap_EM_ASM_sendFloat},
-    { "receiveFloat", _wrap_EM_ASM_receiveFloat},
     { "sendSymbol", _wrap_EM_ASM_sendSymbol},
     {0,0}
 };
@@ -5210,15 +5204,6 @@ static swig_lua_class *swig_EM_ASM_bases[] = {0};
 static const char *swig_EM_ASM_base_names[] = {0};
 static swig_lua_class _wrap_class_EM_ASM = { "EM_ASM", "EM_ASM", &SWIGTYPE_p_pdEM_ASM,_proxy__wrap_new_EM_ASM, swig_delete_EM_ASM, swig_EM_ASM_methods, swig_EM_ASM_attributes, &swig_EM_ASM_Sf_SwigStatic, swig_EM_ASM_meta, swig_EM_ASM_bases, swig_EM_ASM_base_names };
 
-static int _wrap_embind_1(lua_State* L) { int SWIG_arg = 0; float result; SWIG_check_num_args("pdEmbind_1",0,0)
-  result = (float)pdEmbind_1(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
-static int _wrap_embind_2(lua_State* L) { int SWIG_arg = 0; float result; SWIG_check_num_args("pdEmbind_2",0,0)
-  result = (float)pdEmbind_2(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
-static int _wrap_embind_3(lua_State* L) { int SWIG_arg = 0; float result; SWIG_check_num_args("pdEmbind_3",0,0)
-  result = (float)pdEmbind_3(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
 static int _wrap_getBlockSize(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetBlockSize",0,0)
   result = (int)pdGetBlockSize(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
@@ -5322,9 +5307,6 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "Window_getListenerData", _wrap_Window_getListenerData},
     { "sysGui", _wrap_sysGui},
     { "emscriptenRunScript", _wrap_emscriptenRunScript},
-    { "embind_1", _wrap_embind_1},
-    { "embind_2", _wrap_embind_2},
-    { "embind_3", _wrap_embind_3},
     { "getBlockSize", _wrap_getBlockSize},
     { "getSampleRate", _wrap_getSampleRate},
     { "getNumInChannels", _wrap_getNumInChannels},
@@ -5410,6 +5392,7 @@ static swig_type_info _swigt__p_pdValue = {"_p_pdValue", "pdValue *", 0, 0, (voi
 static swig_type_info _swigt__p_pdWindow = {"_p_pdWindow", "pdWindow *", 0, 0, (void*)&_wrap_class_Window, 0};
 static swig_type_info _swigt__p_std__dequeT_int_t = {"_p_std__dequeT_int_t", "std::deque< int > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)&_wrap_class_string, 0};
+static swig_type_info _swigt__p_std__vectorT_float_t = {"_p_std__vectorT_float_t", "std::vector< float > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_t_atom = {"_p_t_atom", "t_atom *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_t_floatarg = {"_p_t_floatarg", "t_floatarg *", 0, 0, (void*)0, 0};
 
@@ -5439,6 +5422,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_pdWindow,
   &_swigt__p_std__dequeT_int_t,
   &_swigt__p_std__string,
+  &_swigt__p_std__vectorT_float_t,
   &_swigt__p_t_atom,
   &_swigt__p_t_floatarg,
 };
@@ -5468,6 +5452,7 @@ static swig_cast_info _swigc__p_pdValue[] = {  {&_swigt__p_pdValue, 0, 0, 0},{0,
 static swig_cast_info _swigc__p_pdWindow[] = {  {&_swigt__p_pdWindow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__dequeT_int_t[] = {  {&_swigt__p_std__dequeT_int_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__vectorT_float_t[] = {  {&_swigt__p_std__vectorT_float_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_t_atom[] = {  {&_swigt__p_t_atom, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_t_floatarg[] = {  {&_swigt__p_t_floatarg, 0, 0, 0},{0, 0, 0, 0}};
 
@@ -5497,6 +5482,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_pdWindow,
   _swigc__p_std__dequeT_int_t,
   _swigc__p_std__string,
+  _swigc__p_std__vectorT_float_t,
   _swigc__p_t_atom,
   _swigc__p_t_floatarg,
 };
