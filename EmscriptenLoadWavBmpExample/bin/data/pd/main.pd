@@ -1,4 +1,4 @@
-#N canvas 396 268 1154 710 12;
+#N canvas 369 260 1154 710 12;
 #X declare -lib ofelia;
 #X obj 380 641 hip~ 5;
 #X obj 398 358 tabread4~ \$0-sample;
@@ -83,9 +83,6 @@
 #X obj 540 358 ofDraw;
 #X obj 642 358 ofMouseMoved;
 #X obj 540 383 list append 0 0;
-#X obj 27 318 ofelia d -k \$0-embindReceiveWav;
-#A __set local wav = {0} \; function embind_5(table) \; wav = table
-\; end \; function M.bang() \; return wav \; end \;;
 #X obj 27 33 loadbang;
 #X obj 27 158 ofSetRectMode 1;
 #X obj 409 58 t b f f;
@@ -101,17 +98,19 @@ y / 2 + 10 \, y / 2 + 10) \; m.image:draw(inverseX \, ofGetHeight()
 \, 1 \, OF_IMAGE_COLOR_ALPHA) \; M.image:setColor(ofColor(200 \, 50
 \, 50 \, 200)) \; M.image:update() \;;
 #X f 48;
-#X obj 540 32 ofelia d \$0-embindReceiveBitmap \; function embind_6(w
-\, h \, pixel) \; local m = require("\$0-initImage") \; m.image:allocate(w
-\, h \, OF_IMAGE_COLOR_ALPHA) \; print("bitmap array size:" \, #pixel
-\, "bitmap width:" \, w \, "bitmap height:" \, h) \; local count_1
-= 0 \; local count_2 = h \; local count_3 = 0 \; for i = 1 \, h do
-\; count_1 = count_1 + (w -((w >> 2) << 2)) * i \; end \; for i = 0
-\, w * h - 1 do \; if i % w == 0 then \; count_2 = count_2 - 1 \; count_3
-= count_3 + w -((w >> 2) << 2) \; end \; m.image:setColor(i % w \,
-count_2 \, ofColor(pixel[i * 3 + 54 + count_3] \, pixel[i * 3 + 55
-+ count_3] \, pixel[i * 3 + 56 + count_3] \, 200)) \; end \; m.image:update()
-\; end \;;
+#X obj 27 318 ofelia d -k;
+#A __set function embind_5() \; end \; function M.bang() \; return
+wav \; end \;;
+#X obj 540 32 ofelia d \$0-embindReceiveBitmap \; local m = require("\$0-initImage")
+\; function embind_6(w \, h) \; m.image:allocate(w \, h \, OF_IMAGE_COLOR_ALPHA)
+\; print("bitmap array size:" \, #pixel \, "bitmap width:" \, w \,
+"bitmap height:" \, h) \; local count_1 = 0 \; local count_2 = h \;
+local count_3 = 0 \; for i = 1 \, h do \; count_1 = count_1 + (w -((w
+>> 2) << 2)) * i \; end \; for i = 0 \, w * h - 1 do \; if i % w ==
+0 then \; count_2 = count_2 - 1 \; count_3 = count_3 + w -((w >> 2)
+<< 2) \; end \; m.image:setColor(i % w \, count_2 \, ofColor(pixel[i
+* 3 + 54 + count_3] \, pixel[i * 3 + 55 + count_3] \, pixel[i * 3 +
+56 + count_3] \, 200)) \; end \; m.image:update() \; end \;;
 #X f 79;
 #X connect 0 0 3 0;
 #X connect 0 0 3 1;
@@ -120,18 +119,18 @@ count_2 \, ofColor(pixel[i * 3 + 54 + count_3] \, pixel[i * 3 + 55
 #X connect 6 0 40 0;
 #X connect 8 0 7 0;
 #X connect 8 1 6 0;
-#X connect 9 0 48 0;
+#X connect 9 0 47 0;
 #X connect 11 0 19 0;
 #X connect 12 0 1 0;
 #X connect 13 0 37 1;
 #X connect 14 0 15 0;
-#X connect 15 0 45 0;
+#X connect 15 0 52 0;
 #X connect 16 0 13 0;
-#X connect 17 0 50 0;
+#X connect 17 0 49 0;
 #X connect 18 0 12 0;
 #X connect 19 0 2 0;
 #X connect 21 0 22 0;
-#X connect 22 0 47 0;
+#X connect 22 0 46 0;
 #X connect 23 0 20 0;
 #X connect 25 0 27 0;
 #X connect 26 0 25 0;
@@ -151,19 +150,19 @@ count_2 \, ofColor(pixel[i * 3 + 54 + count_3] \, pixel[i * 3 + 55
 #X connect 38 0 29 0;
 #X connect 40 0 10 0;
 #X connect 40 1 5 0;
-#X connect 40 2 49 0;
+#X connect 40 2 48 0;
 #X connect 41 0 26 0;
 #X connect 41 1 32 0;
 #X connect 41 2 38 0;
-#X connect 41 3 50 1;
+#X connect 41 3 49 1;
 #X connect 42 0 44 0;
 #X connect 43 0 44 1;
-#X connect 44 0 51 0;
-#X connect 45 0 8 0;
-#X connect 46 0 23 0;
-#X connect 47 0 52 0;
-#X connect 48 0 37 0;
-#X connect 48 1 36 1;
-#X connect 48 2 18 1;
-#X connect 50 0 18 0;
-#X connect 50 0 31 0;
+#X connect 44 0 50 0;
+#X connect 45 0 23 0;
+#X connect 46 0 51 0;
+#X connect 47 0 37 0;
+#X connect 47 1 36 1;
+#X connect 47 2 18 1;
+#X connect 49 0 18 0;
+#X connect 49 0 31 0;
+#X connect 52 0 8 0;
