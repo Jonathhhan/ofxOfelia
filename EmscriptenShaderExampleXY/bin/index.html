@@ -218,11 +218,6 @@ function updateToggle_loop() {
   isChecked = (isChecked)? 1 : 0;
   Module.embind_4(isChecked);
   }
- Base64 = {
-  encode: function(str) {
-    return Buffer.from(str).toString('base64');
-  },
-};
 function encodeImageFileAsDataURL(element) {
   var file = element.files[0];
   var image = new Image();
@@ -245,7 +240,6 @@ function encodeImageFileAsDataURL(element) {
     }
   reader.readAsDataURL(file);
   }
-
 </script>
 </body>
 </html>
