@@ -2,7 +2,7 @@
 <html lang=en-us>
     <head>
         <title>av</title>
-        <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREQAAAAARERERAAAAABEREREAAAAAEREREQAAAAARERERAAAAABEREREAAAAAEREREQAAAAARERERAAAAABEREREAAAAAEREREQAAAAARERERAAAAABEREREAAAAAEREREQAAAAARERERAAAAABEREREAAAAAEREREQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+        <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREQAAAAARERERAAAAABEREREAAAAAEREREQAAAAARERERAAAAABEREREAAAAAEREREQAAAAARERERAAAAABEREREAAAAAEREREQAAAAARERERAAAAABEREREAAAAAEREREQAAAAARERERAAAAABEREREAAAAAEREREQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />  
         <style>
             .emscripten {
                 position: absolute;
@@ -218,30 +218,36 @@ function updateToggle_loop() {
   isChecked = (isChecked)? 1 : 0;
   Module.embind_4(isChecked);
   }
+ Base64 = {
+  encode: function(str) {
+    return Buffer.from(str).toString('base64');
+  },
+};
 function encodeImageFileAsDataURL(element) {
   var file = element.files[0];
   var image = new Image();
   var reader = new FileReader();
   reader.onloadend = function() {
-    image.src = reader.result;
+    image.src = reader.result;                       
     image.onload = function() {
       var width =this.width;
       var height =this.height;
-      encodeImageFileAsArrayBuffer(width, height, element);
+      var canvas = document.createElement('canvas');
+      canvas.width =  width;
+      canvas.height = height;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(image, 0, 0);
+      var canvasData = ctx.getImageData(0, 0, width, height);
+      var buffer = canvasData.data.buffer;
+      var array = new Uint8Array(buffer);
+      Module.embind_6(width, height, array);   
       }
     }
   reader.readAsDataURL(file);
   }
-function encodeImageFileAsArrayBuffer(width, height, element) {
-  var file = element.files[0];
-  var reader = new FileReader();
-  reader.onloadend = function() {
-    var arr = new Uint8Array(reader.result);
-    Module.embind_6(width, height, arr);   
-    }
-  reader.readAsArrayBuffer(file);
-  }
+
 </script>
 </body>
 </html>
+
 
