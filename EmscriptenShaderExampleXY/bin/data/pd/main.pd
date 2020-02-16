@@ -1,4 +1,4 @@
-#N canvas 128 112 577 644 12;
+#N canvas 67 89 577 658 12;
 #X declare -lib ofelia;
 #X obj 138 537 hip~ 5;
 #X obj 156 284 tabread4~ \$0-sample;
@@ -288,22 +288,19 @@ Test") \; ofSetFrameRate(30) \; spectrum:allocate(256 \, 1 \, OF_IMAGE_GRAYSCALE
 \; shader_1:load(shaderDir .. "a") \; shader_2:load(shaderDir .. "Kaleidoscope2")
 \; end \; \; function embind_6(w \, h) \; image:allocate(w \, h \,
 OF_IMAGE_COLOR_ALPHA) \; print("bitmap array size:" \, #pixel \, "bitmap
-width:" \, w \, "bitmap height:" \, h) \; local count_1 = 0 \; local
-count_2 = h \; local count_3 = 0 \; for i = 1 \, h do \; count_1 =
-count_1 + (w -((w >> 2) << 2)) * i \; end \; for i = 0 \, w * h - 1
-do \; if i % w == 0 then \; count_2 = count_2 - 1 \; count_3 = count_3
-+ w -((w >> 2) << 2) \; end \; image:setColor(i % w \, count_2 \, ofColor(pixel[i
-* 3 + 54 + count_3] \, pixel[i * 3 + 55 + count_3] \, pixel[i * 3 +
-56 + count_3] \, 200)) \; end \; image:update() \; end \; \; function
-ofelia.draw() \; local x \, y = M.mouseMoved[1] \, M.mouseMoved[2]
-\; local inverseX \, inverseY = ofGetWidth() - x \, ofGetHeight() -
-y \; for i = 0 \, 255 do \; spectrum:setColor(i \, 0 \, ofColor(array:getAt(i)))
-\; end \; spectrum:update() \; shader_1:beginShader() \; shader_1:setUniform1f("time"
-\, ofGetElapsedTimef()) \; shader_1:setUniform2f("resolution" \, ofGetWindowWidth()
-\, ofGetWindowHeight()) \; shader_1:setUniformTexture("spectrum" \,
-spectrum:getTexture() \, 0) \; shader_1:setUniformTexture("image" \,
-image:getTexture() \, 1) \; fbo_1:beginFbo() \; ofDrawRectangle(0 \,
-0 \, 800 \, 600) \; fbo_1:endFbo() \; shader_1:endShader() \; shader_2:beginShader()
+width:" \, w \, "bitmap height:" \, h) \; local count = -1 \; for i
+= 0 \, w * h - 1 do \; if i % w == 0 then \; count = count + 1 \; end
+\; image:setColor(i % w \, count \, ofColor(pixel[i * 4 + 1] \, pixel[i
+* 4 + 2] \, pixel[i * 4 + 3] \, pixel[i * 4 + 4])) \; end \; image:update()
+\; end \; \; function ofelia.draw() \; local x \, y = M.mouseMoved[1]
+\, M.mouseMoved[2] \; local inverseX \, inverseY = ofGetWidth() - x
+\, ofGetHeight() - y \; for i = 0 \, 255 do \; spectrum:setColor(i
+\, 0 \, ofColor(array:getAt(i))) \; end \; spectrum:update() \; shader_1:beginShader()
+\; shader_1:setUniform1f("time" \, ofGetElapsedTimef()) \; shader_1:setUniform2f("resolution"
+\, ofGetWindowWidth() \, ofGetWindowHeight()) \; shader_1:setUniformTexture("spectrum"
+\, spectrum:getTexture() \, 0) \; shader_1:setUniformTexture("image"
+\, image:getTexture() \, 1) \; fbo_1:beginFbo() \; ofDrawRectangle(0
+\, 0 \, 800 \, 600) \; fbo_1:endFbo() \; shader_1:endShader() \; shader_2:beginShader()
 \; shader_2:setUniform2f("resolution" \, ofGetWindowWidth() \, ofGetWindowHeight())
 \; shader_2:setUniform2f("center" \, ofGetWindowWidth()/2 \, ofGetWindowHeight()/2)
 \; shader_2:setUniform1f("Kaleidoscope2_Sides" \, ofelia.Kaleidoscope2_Sides)
