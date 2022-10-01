@@ -36,7 +36,7 @@ t_int *ofxOfeliaSignal::perform(t_int *w)
         }
         if (lua_pcall(L, numInlets, numOutlets, 0))
         {
-            error("ofelia: %s", lua_tostring(L, -1));
+            bug("ofelia: %s", lua_tostring(L, -1));
             lua_pop(L, 2);
             goto error;
         }
@@ -44,9 +44,9 @@ t_int *ofxOfeliaSignal::perform(t_int *w)
         {
             const char *s = "ofelia: 'perform' function should return";
             if (numOutlets == 1)
-                error("%s %s", s, "a table");
+                bug("%s %s", s, "a table");
             else if (numOutlets > 1)
-                error("%s %d %s", s, numOutlets, "tables");
+                bug("%s %d %s", s, numOutlets, "tables");
             lua_pop(L, 1 + numOutlets);
             goto error;
         }

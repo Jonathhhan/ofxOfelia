@@ -503,7 +503,7 @@ public:
         n = ofClamp(n, 0, x->io.numInlets - 2);
         if (x->io.av[n].a_type != A_FLOAT)
         {
-            postWrongPassiveInletArgTypeError();
+            postWrongPassiveInletArgTypebug();
             return;
         }
         x->io.av[n].a_w.w_float = f;
@@ -514,7 +514,7 @@ public:
         n = ofClamp(n, 0, x->io.numInlets - 2);
         if (x->io.av[n].a_type != A_SYMBOL)
         {
-            postWrongPassiveInletArgTypeError();
+            postWrongPassiveInletArgTypebug();
             return;
         }
         x->io.av[n].a_w.w_symbol = s;
@@ -529,7 +529,7 @@ public:
         {
             if (x->io.av[i].a_type != argv[i].a_type)
             {
-                postWrongPassiveInletArgTypeError();
+                postWrongPassiveInletArgTypebug();
                 return;
             }
             x->io.av[i].a_w = argv[i].a_w;
@@ -546,7 +546,7 @@ private:
         if (x == nullptr) return false;
         if (!x->io.hasMultiControlInlets)
         {
-            error("ofelia: passive inlet does not exist");
+            bug("ofelia: passive inlet does not exist");
             return false;
         }
         return true;
@@ -556,14 +556,14 @@ private:
         if (x == nullptr) return false;
         if (!x->isSignalObject)
         {
-            error("ofelia: signal inlet does not exist");
+            bug("ofelia: signal inlet does not exist");
             return false;
         }
         return true;
     }
-    void postWrongPassiveInletArgTypeError()
+    void postWrongPassiveInletArgTypebug()
     {
-        error("ofelia: wrong passive inlet argument type to set");
+        bug("ofelia: wrong passive inlet argument type to set");
     }
     ofxOfeliaData *x;
 };
@@ -616,12 +616,12 @@ private:
         if (x == nullptr) return false;
         if (!x->io.hasControlOutlet)
         {
-            error("ofelia: control outlet does not exist");
+            bug("ofelia: control outlet does not exist");
             return false;
         }
         if (index < 0 || index >= x->io.numOutlets)
         {
-            error("ofelia: invalid outlet index '%d'", index);
+            bug("ofelia: invalid outlet index '%d'", index);
             return false;
         }
         return true;
@@ -738,7 +738,7 @@ private:
     {
         if (!garray_getfloatwords(a, size, vec))
         {
-            error("ofelia: bad template for array '%s'", sym->s_name);
+            bug("ofelia: bad template for array '%s'", sym->s_name);
             return false;
         }
         return true;
@@ -794,7 +794,7 @@ public:
         else
             logpost(NULL, level, "%s", str.c_str());
     }
-    void error(const std::string &str)
+    void bug(const std::string &str)
     {
         post(str, 1);
     }
