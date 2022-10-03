@@ -21,7 +21,7 @@ static t_class *text_define_class;
 
 #ifdef _WIN32
 # include <malloc.h> /* MSVC or mingw on windows */
-#elif defined(__linux__) || defined(__APPLE__) || defined(HAVE_ALLOCA_H)
+#elif defined(__linux__) || defined(__APPLE__) || defined(HAVE_ALLOCA_H) || defined(__EMSCRIPTEN__)
 # include <alloca.h> /* linux, mac, mingw, cygwin */
 #else
 # include <stdlib.h> /* BSDs for example */
