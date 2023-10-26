@@ -3204,7 +3204,7 @@ SWIGINTERN glm::mat3 ofMatrix3x3_mat3(ofMatrix3x3 *self){
 		return (*self);
 	}
 SWIGINTERN char const *ofMatrix3x3___str__(ofMatrix3x3 *self){
-		ostringstream str;
+		stringstream str;
 		str << (*self);
 		return str.str().c_str();
 	}
@@ -3212,7 +3212,7 @@ SWIGINTERN glm::mat4 ofMatrix4x4_mat4(ofMatrix4x4 *self){
 		return (*self);
 	}
 SWIGINTERN char const *ofMatrix4x4___str__(ofMatrix4x4 *self){
-		ostringstream str;
+		stringstream str;
 		str << (*self);
 		return str.str().c_str();
 	}
@@ -3220,7 +3220,7 @@ SWIGINTERN glm::quat ofQuaternion_quat(ofQuaternion *self){
 		return (*self);
 	}
 SWIGINTERN char const *ofQuaternion___str__(ofQuaternion *self){
-		ostringstream str;
+		stringstream str;
 		str << (*self);
 		return str.str().c_str();
 	}
@@ -3228,7 +3228,7 @@ SWIGINTERN glm::vec2 ofVec2f_vec2(ofVec2f *self){
 		return (*self);
 	}
 SWIGINTERN char const *ofVec2f___str__(ofVec2f *self){
-		ostringstream str;
+		stringstream str;
 		str << (*self);
 		return str.str().c_str();
 	}
@@ -3236,7 +3236,7 @@ SWIGINTERN glm::vec3 ofVec3f_vec3(ofVec3f *self){
 		return (*self);
 	}
 SWIGINTERN char const *ofVec3f___str__(ofVec3f *self){
-		ostringstream str;
+		stringstream str;
 		str << (*self);
 		return str.str().c_str();
 	}
@@ -3244,7 +3244,7 @@ SWIGINTERN glm::vec4 ofVec4f_vec4(ofVec4f *self){
 		return (*self);
 	}
 SWIGINTERN char const *ofVec4f___str__(ofVec4f *self){
-		ostringstream str;
+		stringstream str;
 		str << (*self);
 		return str.str().c_str();
 	}
