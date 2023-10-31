@@ -1,6 +1,7 @@
 #include "ofxOfeliaLua.h"
 #include "ofxOfeliaGL.h"
 #include "ofxOfeliaData.h"
+#include "lua.hpp"
 #include <algorithm>
 #include <cctype>
 #include <deque>
