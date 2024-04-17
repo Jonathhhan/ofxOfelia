@@ -13,6 +13,21 @@
 #include <iostream>
 #include <fstream>
 
+#include "../../ofxStableDiffusion/src/stable-diffusion.h"
+
+//--------------------------------------------------------------
+void sd_log_cb(enum sd_log_level_t level, const char* log, void* data) {
+    post(log);
+    if (level <= SD_LOG_INFO) {
+        fputs(log, stdout);
+        fflush(stdout);
+    }
+    else {
+        fputs(log, stderr);
+        fflush(stderr);
+    }
+}
+
 int ofeliaVersionMajor = OFELIA_MAJOR_VERSION;
 int ofeliaVersionMinor = OFELIA_MINOR_VERSION;
 int ofeliaVersionBugFix = OFELIA_BUGFIX_VERSION;
@@ -53,4 +68,6 @@ void ofelia_setup()
          ofeliaVersionMajor, ofeliaVersionMinor, ofeliaVersionBugFix, __DATE__);
     post("(c) 2018 Zack Lee <cuinjune@gmail.com>");
     post("-------------------------------------------------------------------");
+    // setup ofxStableDiffusion log callback
+    sd_set_log_callback(sd_log_cb, NULL);
 }
