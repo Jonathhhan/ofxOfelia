@@ -43,6 +43,10 @@
 %ignore operator ImU32;
 %ignore operator ImVec4;
 %ignore operator bool;
+%ignore operator new;
+%ignore operator delete;
+
+%rename(c_end) end;
 
 // ----- Bindings------
 
