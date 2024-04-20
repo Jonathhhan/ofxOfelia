@@ -40,13 +40,31 @@
 %include <std_string.i>
 %include <std_vector.i>
 
-%ignore operator ImU32;
-%ignore operator ImVec4;
-%ignore operator bool;
-%ignore operator new;
-%ignore operator delete;
+// ----- ImGui specific -----
+%ignore ImGuiNavInput;
+%ignore KeyMap;
+%ignore KeysDown;
+%ignore NavInputs;
+%ignore operator new(size_t, ImNewWrapper, void*);   // Ignored because SWIG doesn't support this operator
+%ignore operator delete(void*, ImNewWrapper, void*); // Ignored because SWIG doesn't support this operator
+%ignore ImGuiTextFilter::ImGuiTextRange; // Ignored because SWIG doesn't support nested structs
+%ignore ImGuiStorage::ImGuiStoragePair;  // Ignored because SWIG doesn't support nested structs
+%ignore Value(const char*, int);          // Always use float version instead
+%ignore Value(const char*, unsigned int); // Always use float version instead
+%ignore ImColor::ImColor(int, int, int);          // Always use float version instead
+%ignore ImColor::ImColor(int, int, int, int);     // Always use float version instead
 
 %rename(c_end) end;
+%rename(tobool) ImGuiOnceUponAFrame::operator bool;
+%rename(toImU32) ImColor::operator ImU32;
+%rename(toImVec4) ImColor::operator ImVec4;
+%rename(GetColorU32_ImU32) GetColorU32(ImU32 col);
+
+%immutable ImGuiIO::IniFilename;
+%immutable ImGuiIO::LogFilename;
+%immutable ImGuiIO::BackendPlatformName;
+%immutable ImGuiIO::BackendRendererName;
+%immutable ImDrawList::_OwnerName;
 
 // ----- Bindings------
 
