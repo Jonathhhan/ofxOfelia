@@ -22,30 +22,30 @@
     <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ofelia</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
@@ -120,6 +120,7 @@
       <AdditionalIncludeDirectories>..\..\..\addons\ofxOfelia\libs\ofxLua\src;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\ios;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\linuxarm;..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src;..\..\..\addons/ofxOfelia/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>-DGLM_ENABLE_EXPERIMENTAL %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -240,6 +241,25 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSetup.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSignal.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaTextBuf.cpp" />
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\backends\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\backends\imgui_impl_glfw_context_support.cpp" />
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\backends\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\backends\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\extras\imgui_stdlib.cpp" />
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\src\imgui.cpp" />
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\src\imgui_demo.cpp" />
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\src\imgui_draw.cpp" />
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\src\imgui_tables.cpp" />
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\src\imgui_widgets.cpp" />
+    <ClCompile Include="..\..\ofxImGui\src\BaseEngine.cpp" />
+    <ClCompile Include="..\..\ofxImGui\src\DefaultTheme.cpp" />
+    <ClCompile Include="..\..\ofxImGui\src\EngineGLFW.cpp" />
+    <ClCompile Include="..\..\ofxImGui\src\Gui.cpp" />
+    <ClCompile Include="..\..\ofxVolumetrics\src\ofxTexture3d.cpp" />
+    <ClCompile Include="..\..\ofxVolumetrics\src\ofxVolumetrics.cpp" />
+    <ClCompile Include="..\src\ofxOfeliaImGuiBindings.cpp" />
+    <ClCompile Include="..\src\ofxOfeliaOfxBindings.cpp" />
+    <ClCompile Include="..\src\ofxOfeliaOfxImGuiBindings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lapi.h" />
@@ -289,6 +309,10 @@
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSetup.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSignal.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaTextBuf.h" />
+    <ClInclude Include="..\..\ofxStableDiffusion\libs\stable-diffusion\include\stable-diffusion.h" />
+    <ClInclude Include="..\..\ofxVolumetrics\src\ofxImageSequencePlayer.h" />
+    <ClInclude Include="..\..\ofxVolumetrics\src\ofxTexture3d.h" />
+    <ClInclude Include="..\..\ofxVolumetrics\src\ofxVolumetrics.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
@@ -301,6 +325,9 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\ofxStableDiffusion\libs\stable-diffusion\lib\vs\stable-diffusion.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ProjectExtensions>

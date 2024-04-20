@@ -166,6 +166,63 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaTextBuf.cpp">
       <Filter>addons\ofxOfelia\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ofxOfeliaImGuiBindings.cpp">
+      <Filter>addons\ofxOfelia\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ofxOfeliaOfxBindings.cpp">
+      <Filter>addons\ofxOfelia\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ofxOfeliaOfxImGuiBindings.cpp">
+      <Filter>addons\ofxOfelia\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\src\Gui.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\src\BaseEngine.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\src\DefaultTheme.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\src\imgui_widgets.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\src\imgui.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\src\imgui_demo.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\src\imgui_draw.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxVolumetrics\src\ofxVolumetrics.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxVolumetrics\src\ofxTexture3d.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\extras\imgui_stdlib.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\src\imgui_tables.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\src\EngineGLFW.cpp">
+      <Filter>addons\ofxOfelia\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\backends\imgui_impl_opengl2.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\backends\imgui_impl_opengl3.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\backends\imgui_impl_glfw_context_support.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxImGui\libs\imgui\backends\imgui_impl_glfw.cpp">
+      <Filter>addons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -344,8 +401,25 @@
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaTextBuf.h">
       <Filter>addons\ofxOfelia\src</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\ofxStableDiffusion\libs\stable-diffusion\include\stable-diffusion.h">
+      <Filter>addons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxVolumetrics\src\ofxImageSequencePlayer.h">
+      <Filter>addons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxVolumetrics\src\ofxTexture3d.h">
+      <Filter>addons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxVolumetrics\src\ofxVolumetrics.h">
+      <Filter>addons</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\ofxStableDiffusion\libs\stable-diffusion\lib\vs\stable-diffusion.lib">
+      <Filter>addons</Filter>
+    </Library>
   </ItemGroup>
 </Project>
