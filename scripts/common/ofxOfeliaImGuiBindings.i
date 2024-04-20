@@ -4,7 +4,7 @@
 // main MODULE
 %module ImGui
 %{
-	#include "../../../ofxImGui/libs/imgui/src/imgui.h"
+	#include "../../ofxImGui/libs/imgui/src/imgui.h"
 %}
 
 //------
@@ -46,4 +46,4 @@
 
 // ----- Bindings------
 
-%include "../../../ofxImGui/libs/imgui/src/imgui.h"
+%include "../../ofxImGui/libs/imgui/src/imgui.h"
