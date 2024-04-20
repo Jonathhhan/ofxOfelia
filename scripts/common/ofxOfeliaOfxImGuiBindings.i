@@ -13,6 +13,7 @@
 // SWIG doesn't understand C++ streams
 %ignore operator <<;
 %ignore operator >>;
+%ignore operator bool;
 
 // expanded primitives
 %typedef unsigned int size_t;
