@@ -28,7 +28,6 @@
 // Custom changes
 //------
 
-%ignore ofColorScale;
 %ignore operator ofFloatColor;
 %ignore operator ofVec2f;
 %ignore operator ofVec4f;
