@@ -2752,16 +2752,24 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 
 #define SWIGTYPE_p_BaseTheme swig_types[0]
 #define SWIGTYPE_p_GLuint swig_types[1]
-#define SWIGTYPE_p_long_long swig_types[2]
-#define SWIGTYPE_p_ofImage swig_types[3]
-#define SWIGTYPE_p_ofPixels swig_types[4]
-#define SWIGTYPE_p_ofTexture swig_types[5]
-#define SWIGTYPE_p_ofxImGui__Gui swig_types[6]
-#define SWIGTYPE_p_std__string swig_types[7]
-#define SWIGTYPE_p_unsigned_int swig_types[8]
-#define SWIGTYPE_p_unsigned_long_long swig_types[9]
-static swig_type_info *swig_types[11];
-static swig_module_info swig_module = {swig_types, 10, 0, 0, 0, 0};
+#define SWIGTYPE_p_ImFont swig_types[2]
+#define SWIGTYPE_p_ImFontConfig swig_types[3]
+#define SWIGTYPE_p_ImGuiConfigFlags swig_types[4]
+#define SWIGTYPE_p_ImGuiContext swig_types[5]
+#define SWIGTYPE_p_ImWchar swig_types[6]
+#define SWIGTYPE_p_long_long swig_types[7]
+#define SWIGTYPE_p_ofEventArgs swig_types[8]
+#define SWIGTYPE_p_ofImage swig_types[9]
+#define SWIGTYPE_p_ofPixels swig_types[10]
+#define SWIGTYPE_p_ofTexture swig_types[11]
+#define SWIGTYPE_p_ofxImGuiContext swig_types[12]
+#define SWIGTYPE_p_ofxImGui__Gui swig_types[13]
+#define SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t swig_types[14]
+#define SWIGTYPE_p_std__string swig_types[15]
+#define SWIGTYPE_p_unsigned_int swig_types[16]
+#define SWIGTYPE_p_unsigned_long_long swig_types[17]
+static swig_type_info *swig_types[19];
+static swig_module_info swig_module = {swig_types, 18, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2862,6 +2870,9 @@ SWIGINTERN int SWIG_lua_isnilstring(lua_State *L, int idx) {
 
 
 #include <utility>
+
+
+#include <memory>
 
 #ifdef __cplusplus
 extern "C" {
@@ -2971,55 +2982,420 @@ static swig_lua_class *swig_string_bases[] = {0};
 static const char *swig_string_base_names[] = {0};
 static swig_lua_class _wrap_class_string = { "string", "string", &SWIGTYPE_p_std__string,_proxy__wrap_new_string, swig_delete_string, swig_string_methods, swig_string_attributes, &swig_string_Sf_SwigStatic, swig_string_meta, swig_string_bases, swig_string_base_names };
 
+static int _wrap_new_ofxImGuiContext__SWIG_0(lua_State* L) { { int SWIG_arg = 0; std::shared_ptr< ofAppBaseWindow > *arg1 = 0 ;
+    ofxImGuiContext *result = 0 ; SWIG_check_num_args("ofxImGuiContext::ofxImGuiContext",1,1)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("ofxImGuiContext::ofxImGuiContext",1,"std::shared_ptr< ofAppBaseWindow > &");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t,0))){
+      SWIG_fail_ptr("new_ofxImGuiContext",1,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t); } 
+    result = (ofxImGuiContext *)new ofxImGuiContext(*arg1);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofxImGuiContext,1); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_new_ofxImGuiContext__SWIG_1(lua_State* L) { { int SWIG_arg = 0; ofxImGuiContext *arg1 = 0 ; void *argp1 = 0 ;
+    int res1 = 0 ; std::unique_ptr< ofxImGuiContext > rvrdeleter1 ; ofxImGuiContext *result = 0 ;
+    SWIG_check_num_args("ofxImGuiContext::ofxImGuiContext",1,1)
+    if(!lua_isuserdata(L,1)) SWIG_fail_arg("ofxImGuiContext::ofxImGuiContext",1,"ofxImGuiContext &&");
+    res1 = SWIG_ConvertPtr(L, 1, &argp1, SWIGTYPE_p_ofxImGuiContext, SWIG_POINTER_RELEASE); if (!SWIG_IsOK(res1)) {
+      if (res1 == SWIG_ERROR_RELEASE_NOT_OWNED) {
+        lua_pushfstring(L, "Cannot release ownership as memory is not owned for argument 1 of type 'ofxImGuiContext &&' in new_ofxImGuiContext"); SWIG_fail; }
+       else { SWIG_fail_ptr("new_ofxImGuiContext", 1, SWIGTYPE_p_ofxImGuiContext); }  }  arg1 = (ofxImGuiContext *)argp1;
+    rvrdeleter1.reset(arg1); result = (ofxImGuiContext *)new ofxImGuiContext((ofxImGuiContext &&)*arg1);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofxImGuiContext,1); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_new_ofxImGuiContext(lua_State* L) { int argc; int argv[2]={ 1,2} ; argc = lua_gettop(L); if (argc == 1) {
+    int _v = 0; { void *ptr;
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t, SWIG_POINTER_NO_NULL)) {
+        _v = 0; }  else { _v = 1; }  }  if (_v) { return _wrap_new_ofxImGuiContext__SWIG_0(L);}  }  if (argc == 1) { int _v = 0;
+    { void *ptr;
+      if (lua_isuserdata(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGuiContext, SWIG_POINTER_NO_NULL)) {
+        _v = 0; }  else { _v = 1; }  }  if (_v) { return _wrap_new_ofxImGuiContext__SWIG_1(L);}  } 
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_ofxImGuiContext'\n"
+  "  Possible C/C++ prototypes are:\n" "    ofxImGuiContext::ofxImGuiContext(std::shared_ptr< ofAppBaseWindow > &)\n"
+  "    ofxImGuiContext::ofxImGuiContext(ofxImGuiContext &&)\n"); lua_error(L);return 0; }
+static int _wrap_ofxImGuiContext_imguiContext_set(lua_State* L) { { int SWIG_arg = 0;
+    ofxImGuiContext *arg1 = (ofxImGuiContext *) 0 ; ImGuiContext *arg2 = (ImGuiContext *) 0 ;
+    SWIG_check_num_args("ofxImGuiContext::imguiContext",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGuiContext::imguiContext",1,"ofxImGuiContext *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGuiContext::imguiContext",2,"ImGuiContext *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGuiContext,0))){
+      SWIG_fail_ptr("ofxImGuiContext_imguiContext_set",1,SWIGTYPE_p_ofxImGuiContext); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_ImGuiContext,SWIG_POINTER_DISOWN))){
+      SWIG_fail_ptr("ofxImGuiContext_imguiContext_set",2,SWIGTYPE_p_ImGuiContext); }  if (arg1) (arg1)->imguiContext = arg2;
+    return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_ofxImGuiContext_imguiContext_get(lua_State* L) { { int SWIG_arg = 0;
+    ofxImGuiContext *arg1 = (ofxImGuiContext *) 0 ; ImGuiContext *result = 0 ;
+    SWIG_check_num_args("ofxImGuiContext::imguiContext",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGuiContext::imguiContext",1,"ofxImGuiContext *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGuiContext,0))){
+      SWIG_fail_ptr("ofxImGuiContext_imguiContext_get",1,SWIGTYPE_p_ofxImGuiContext); } 
+    result = (ImGuiContext *) ((arg1)->imguiContext); SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImGuiContext,0); SWIG_arg++; 
+    return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_ofxImGuiContext_ofWindow_set(lua_State* L) { { int SWIG_arg = 0;
+    ofxImGuiContext *arg1 = (ofxImGuiContext *) 0 ; std::shared_ptr< ofAppBaseWindow > arg2 ;
+    std::shared_ptr< ofAppBaseWindow > *argp2 ; SWIG_check_num_args("ofxImGuiContext::ofWindow",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGuiContext::ofWindow",1,"ofxImGuiContext *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofxImGuiContext::ofWindow",2,"std::shared_ptr< ofAppBaseWindow >");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGuiContext,0))){
+      SWIG_fail_ptr("ofxImGuiContext_ofWindow_set",1,SWIGTYPE_p_ofxImGuiContext); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t,0))){
+      SWIG_fail_ptr("ofxImGuiContext_ofWindow_set",2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t); }  arg2 = *argp2;
+    if (arg1) (arg1)->ofWindow = arg2; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_ofxImGuiContext_ofWindow_get(lua_State* L) { { int SWIG_arg = 0;
+    ofxImGuiContext *arg1 = (ofxImGuiContext *) 0 ; std::shared_ptr< ofAppBaseWindow > result;
+    SWIG_check_num_args("ofxImGuiContext::ofWindow",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGuiContext::ofWindow",1,"ofxImGuiContext *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGuiContext,0))){
+      SWIG_fail_ptr("ofxImGuiContext_ofWindow_get",1,SWIGTYPE_p_ofxImGuiContext); }  result =  ((arg1)->ofWindow); {
+      std::shared_ptr< ofAppBaseWindow > * resultptr = new std::shared_ptr< ofAppBaseWindow >(result);
+      SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t,1); SWIG_arg++; }  return SWIG_arg;
+    fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_ofxImGuiContext_autoDraw_set(lua_State* L) { { int SWIG_arg = 0;
+    ofxImGuiContext *arg1 = (ofxImGuiContext *) 0 ; bool arg2 ; SWIG_check_num_args("ofxImGuiContext::autoDraw",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGuiContext::autoDraw",1,"ofxImGuiContext *");
+    if(!lua_isboolean(L,2)) SWIG_fail_arg("ofxImGuiContext::autoDraw",2,"bool");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGuiContext,0))){
+      SWIG_fail_ptr("ofxImGuiContext_autoDraw_set",1,SWIGTYPE_p_ofxImGuiContext); }  arg2 = (lua_toboolean(L, 2)!=0);
+    if (arg1) (arg1)->autoDraw = arg2; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_ofxImGuiContext_autoDraw_get(lua_State* L) { { int SWIG_arg = 0;
+    ofxImGuiContext *arg1 = (ofxImGuiContext *) 0 ; bool result; SWIG_check_num_args("ofxImGuiContext::autoDraw",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGuiContext::autoDraw",1,"ofxImGuiContext *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGuiContext,0))){
+      SWIG_fail_ptr("ofxImGuiContext_autoDraw_get",1,SWIGTYPE_p_ofxImGuiContext); }  result = (bool) ((arg1)->autoDraw);
+    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_ofxImGuiContext_isShared(lua_State* L) { { int SWIG_arg = 0; ofxImGuiContext *arg1 = (ofxImGuiContext *) 0 ;
+    bool result; SWIG_check_num_args("ofxImGuiContext::isShared",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGuiContext::isShared",1,"ofxImGuiContext const *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGuiContext,0))){
+      SWIG_fail_ptr("ofxImGuiContext_isShared",1,SWIGTYPE_p_ofxImGuiContext); } 
+    result = (bool)((ofxImGuiContext const *)arg1)->isShared(); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+    return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static void swig_delete_ofxImGuiContext(void *obj) {
+ofxImGuiContext *arg1 = (ofxImGuiContext *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_ofxImGuiContext(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_ofxImGuiContext);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_ofxImGuiContext_attributes[] = {
+    { "imguiContext", _wrap_ofxImGuiContext_imguiContext_get, _wrap_ofxImGuiContext_imguiContext_set },
+    { "ofWindow", _wrap_ofxImGuiContext_ofWindow_get, _wrap_ofxImGuiContext_ofWindow_set },
+    { "autoDraw", _wrap_ofxImGuiContext_autoDraw_get, _wrap_ofxImGuiContext_autoDraw_set },
+    {0,0,0}
+};
+static swig_lua_method swig_ofxImGuiContext_methods[]= {
+    { "isShared", _wrap_ofxImGuiContext_isShared},
+    {0,0}
+};
+static swig_lua_method swig_ofxImGuiContext_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_ofxImGuiContext_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_ofxImGuiContext_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_ofxImGuiContext_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_ofxImGuiContext_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_ofxImGuiContext_Sf_SwigStatic = {
+    "ofxImGuiContext",
+    swig_ofxImGuiContext_Sf_SwigStatic_methods,
+    swig_ofxImGuiContext_Sf_SwigStatic_attributes,
+    swig_ofxImGuiContext_Sf_SwigStatic_constants,
+    swig_ofxImGuiContext_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_ofxImGuiContext_bases[] = {0};
+static const char *swig_ofxImGuiContext_base_names[] = {0};
+static swig_lua_class _wrap_class_ofxImGuiContext = { "ofxImGuiContext", "ofxImGuiContext", &SWIGTYPE_p_ofxImGuiContext,_proxy__wrap_new_ofxImGuiContext, swig_delete_ofxImGuiContext, swig_ofxImGuiContext_methods, swig_ofxImGuiContext_attributes, &swig_ofxImGuiContext_Sf_SwigStatic, swig_ofxImGuiContext_meta, swig_ofxImGuiContext_bases, swig_ofxImGuiContext_base_names };
+
 static int _wrap_new_Gui(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *result = 0 ;
     SWIG_check_num_args("ofxImGui::Gui::Gui",0,0) result = (ofxImGui::Gui *)new ofxImGui::Gui();
     SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofxImGui__Gui,1); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
   return 0; }
 static int _wrap_Gui_setup__SWIG_0(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
-    BaseTheme *arg2 = (BaseTheme *) 0 ; bool arg3 ; SWIG_check_num_args("ofxImGui::Gui::setup",3,3)
+    BaseTheme *arg2 = (BaseTheme *) 0 ; bool arg3 ; ImGuiConfigFlags arg4 ; bool arg5 ; bool arg6 ; ImGuiConfigFlags *argp4 ;
+    ofxImGui::SetupState result; SWIG_check_num_args("ofxImGui::Gui::setup",6,6)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"BaseTheme *");
+    if(!lua_isboolean(L,3)) SWIG_fail_arg("ofxImGui::Gui::setup",3,"bool");
+    if(!lua_isuserdata(L,4)) SWIG_fail_arg("ofxImGui::Gui::setup",4,"ImGuiConfigFlags");
+    if(!lua_isboolean(L,5)) SWIG_fail_arg("ofxImGui::Gui::setup",5,"bool");
+    if(!lua_isboolean(L,6)) SWIG_fail_arg("ofxImGui::Gui::setup",6,"bool");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_BaseTheme,0))){
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_BaseTheme); }  arg3 = (lua_toboolean(L, 3)!=0);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&argp4,SWIGTYPE_p_ImGuiConfigFlags,0))){
+      SWIG_fail_ptr("Gui_setup",4,SWIGTYPE_p_ImGuiConfigFlags); }  arg4 = *argp4; arg5 = (lua_toboolean(L, 5)!=0);
+    arg6 = (lua_toboolean(L, 6)!=0); result = (ofxImGui::SetupState)(arg1)->setup(arg2,arg3,arg4,arg5,arg6);
+    lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup__SWIG_1(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    BaseTheme *arg2 = (BaseTheme *) 0 ; bool arg3 ; ImGuiConfigFlags arg4 ; bool arg5 ; ImGuiConfigFlags *argp4 ;
+    ofxImGui::SetupState result; SWIG_check_num_args("ofxImGui::Gui::setup",5,5)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"BaseTheme *");
+    if(!lua_isboolean(L,3)) SWIG_fail_arg("ofxImGui::Gui::setup",3,"bool");
+    if(!lua_isuserdata(L,4)) SWIG_fail_arg("ofxImGui::Gui::setup",4,"ImGuiConfigFlags");
+    if(!lua_isboolean(L,5)) SWIG_fail_arg("ofxImGui::Gui::setup",5,"bool");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_BaseTheme,0))){
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_BaseTheme); }  arg3 = (lua_toboolean(L, 3)!=0);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&argp4,SWIGTYPE_p_ImGuiConfigFlags,0))){
+      SWIG_fail_ptr("Gui_setup",4,SWIGTYPE_p_ImGuiConfigFlags); }  arg4 = *argp4; arg5 = (lua_toboolean(L, 5)!=0);
+    result = (ofxImGui::SetupState)(arg1)->setup(arg2,arg3,arg4,arg5); lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
+    return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup__SWIG_2(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    BaseTheme *arg2 = (BaseTheme *) 0 ; bool arg3 ; ImGuiConfigFlags arg4 ; ImGuiConfigFlags *argp4 ;
+    ofxImGui::SetupState result; SWIG_check_num_args("ofxImGui::Gui::setup",4,4)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"BaseTheme *");
+    if(!lua_isboolean(L,3)) SWIG_fail_arg("ofxImGui::Gui::setup",3,"bool");
+    if(!lua_isuserdata(L,4)) SWIG_fail_arg("ofxImGui::Gui::setup",4,"ImGuiConfigFlags");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_BaseTheme,0))){
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_BaseTheme); }  arg3 = (lua_toboolean(L, 3)!=0);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&argp4,SWIGTYPE_p_ImGuiConfigFlags,0))){
+      SWIG_fail_ptr("Gui_setup",4,SWIGTYPE_p_ImGuiConfigFlags); }  arg4 = *argp4;
+    result = (ofxImGui::SetupState)(arg1)->setup(arg2,arg3,arg4); lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
+    return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup__SWIG_3(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    BaseTheme *arg2 = (BaseTheme *) 0 ; bool arg3 ; ofxImGui::SetupState result; SWIG_check_num_args("ofxImGui::Gui::setup",3,3)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
     if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"BaseTheme *");
     if(!lua_isboolean(L,3)) SWIG_fail_arg("ofxImGui::Gui::setup",3,"bool");
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
       SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_BaseTheme,0))){
-      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_BaseTheme); }  arg3 = (lua_toboolean(L, 3)!=0); (arg1)->setup(arg2,arg3);
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_BaseTheme); }  arg3 = (lua_toboolean(L, 3)!=0);
+    result = (ofxImGui::SetupState)(arg1)->setup(arg2,arg3); lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
     return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
-static int _wrap_Gui_setup__SWIG_1(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
-    BaseTheme *arg2 = (BaseTheme *) 0 ; SWIG_check_num_args("ofxImGui::Gui::setup",2,2)
+static int _wrap_Gui_setup__SWIG_4(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    BaseTheme *arg2 = (BaseTheme *) 0 ; ofxImGui::SetupState result; SWIG_check_num_args("ofxImGui::Gui::setup",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
     if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"BaseTheme *");
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
       SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_BaseTheme,0))){
-      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_BaseTheme); }  (arg1)->setup(arg2); return SWIG_arg; fail: SWIGUNUSED; } 
-  lua_error(L); return 0; }
-static int _wrap_Gui_setup__SWIG_2(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
-    SWIG_check_num_args("ofxImGui::Gui::setup",1,1)
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_BaseTheme); }  result = (ofxImGui::SetupState)(arg1)->setup(arg2);
+    lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup__SWIG_5(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    ofxImGui::SetupState result; SWIG_check_num_args("ofxImGui::Gui::setup",1,1)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
-      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); }  (arg1)->setup(); return SWIG_arg; fail: SWIGUNUSED; } 
-  lua_error(L); return 0; }
-static int _wrap_Gui_setup(lua_State* L) { int argc; int argv[4]={ 1,2,3,4} ; argc = lua_gettop(L); if (argc == 1) { int _v = 0;
-    { void *ptr; if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) {
-        _v = 0; }  else { _v = 1; }  }  if (_v) { return _wrap_Gui_setup__SWIG_2(L);}  }  if (argc == 2) { int _v = 0; {
-      void *ptr; if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) {
-        _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
-        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
-         else { _v = 1; }  }  if (_v) { return _wrap_Gui_setup__SWIG_1(L);}  }  }  if (argc == 3) { int _v = 0; { void *ptr;
+      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); }  result = (ofxImGui::SetupState)(arg1)->setup();
+    lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup__SWIG_6(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::shared_ptr< ofAppBaseWindow > *arg2 = 0 ; BaseTheme *arg3 = (BaseTheme *) 0 ; bool arg4 ; ImGuiConfigFlags arg5 ;
+    bool arg6 ; bool arg7 ; ImGuiConfigFlags *argp5 ; ofxImGui::SetupState result;
+    SWIG_check_num_args("ofxImGui::Gui::setup",7,7)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"std::shared_ptr< ofAppBaseWindow > &");
+    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("ofxImGui::Gui::setup",3,"BaseTheme *");
+    if(!lua_isboolean(L,4)) SWIG_fail_arg("ofxImGui::Gui::setup",4,"bool");
+    if(!lua_isuserdata(L,5)) SWIG_fail_arg("ofxImGui::Gui::setup",5,"ImGuiConfigFlags");
+    if(!lua_isboolean(L,6)) SWIG_fail_arg("ofxImGui::Gui::setup",6,"bool");
+    if(!lua_isboolean(L,7)) SWIG_fail_arg("ofxImGui::Gui::setup",7,"bool");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t,0))){
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_BaseTheme,0))){
+      SWIG_fail_ptr("Gui_setup",3,SWIGTYPE_p_BaseTheme); }  arg4 = (lua_toboolean(L, 4)!=0);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&argp5,SWIGTYPE_p_ImGuiConfigFlags,0))){
+      SWIG_fail_ptr("Gui_setup",5,SWIGTYPE_p_ImGuiConfigFlags); }  arg5 = *argp5; arg6 = (lua_toboolean(L, 6)!=0);
+    arg7 = (lua_toboolean(L, 7)!=0); result = (ofxImGui::SetupState)(arg1)->setup(*arg2,arg3,arg4,arg5,arg6,arg7);
+    lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup__SWIG_7(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::shared_ptr< ofAppBaseWindow > *arg2 = 0 ; BaseTheme *arg3 = (BaseTheme *) 0 ; bool arg4 ; ImGuiConfigFlags arg5 ;
+    bool arg6 ; ImGuiConfigFlags *argp5 ; ofxImGui::SetupState result; SWIG_check_num_args("ofxImGui::Gui::setup",6,6)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"std::shared_ptr< ofAppBaseWindow > &");
+    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("ofxImGui::Gui::setup",3,"BaseTheme *");
+    if(!lua_isboolean(L,4)) SWIG_fail_arg("ofxImGui::Gui::setup",4,"bool");
+    if(!lua_isuserdata(L,5)) SWIG_fail_arg("ofxImGui::Gui::setup",5,"ImGuiConfigFlags");
+    if(!lua_isboolean(L,6)) SWIG_fail_arg("ofxImGui::Gui::setup",6,"bool");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t,0))){
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_BaseTheme,0))){
+      SWIG_fail_ptr("Gui_setup",3,SWIGTYPE_p_BaseTheme); }  arg4 = (lua_toboolean(L, 4)!=0);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&argp5,SWIGTYPE_p_ImGuiConfigFlags,0))){
+      SWIG_fail_ptr("Gui_setup",5,SWIGTYPE_p_ImGuiConfigFlags); }  arg5 = *argp5; arg6 = (lua_toboolean(L, 6)!=0);
+    result = (ofxImGui::SetupState)(arg1)->setup(*arg2,arg3,arg4,arg5,arg6);
+    lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup__SWIG_8(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::shared_ptr< ofAppBaseWindow > *arg2 = 0 ; BaseTheme *arg3 = (BaseTheme *) 0 ; bool arg4 ; ImGuiConfigFlags arg5 ;
+    ImGuiConfigFlags *argp5 ; ofxImGui::SetupState result; SWIG_check_num_args("ofxImGui::Gui::setup",5,5)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"std::shared_ptr< ofAppBaseWindow > &");
+    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("ofxImGui::Gui::setup",3,"BaseTheme *");
+    if(!lua_isboolean(L,4)) SWIG_fail_arg("ofxImGui::Gui::setup",4,"bool");
+    if(!lua_isuserdata(L,5)) SWIG_fail_arg("ofxImGui::Gui::setup",5,"ImGuiConfigFlags");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t,0))){
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_BaseTheme,0))){
+      SWIG_fail_ptr("Gui_setup",3,SWIGTYPE_p_BaseTheme); }  arg4 = (lua_toboolean(L, 4)!=0);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&argp5,SWIGTYPE_p_ImGuiConfigFlags,0))){
+      SWIG_fail_ptr("Gui_setup",5,SWIGTYPE_p_ImGuiConfigFlags); }  arg5 = *argp5;
+    result = (ofxImGui::SetupState)(arg1)->setup(*arg2,arg3,arg4,arg5);
+    lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup__SWIG_9(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::shared_ptr< ofAppBaseWindow > *arg2 = 0 ; BaseTheme *arg3 = (BaseTheme *) 0 ; bool arg4 ; ofxImGui::SetupState result;
+    SWIG_check_num_args("ofxImGui::Gui::setup",4,4)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"std::shared_ptr< ofAppBaseWindow > &");
+    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("ofxImGui::Gui::setup",3,"BaseTheme *");
+    if(!lua_isboolean(L,4)) SWIG_fail_arg("ofxImGui::Gui::setup",4,"bool");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t,0))){
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_BaseTheme,0))){
+      SWIG_fail_ptr("Gui_setup",3,SWIGTYPE_p_BaseTheme); }  arg4 = (lua_toboolean(L, 4)!=0);
+    result = (ofxImGui::SetupState)(arg1)->setup(*arg2,arg3,arg4); lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
+    return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup__SWIG_10(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::shared_ptr< ofAppBaseWindow > *arg2 = 0 ; BaseTheme *arg3 = (BaseTheme *) 0 ; ofxImGui::SetupState result;
+    SWIG_check_num_args("ofxImGui::Gui::setup",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"std::shared_ptr< ofAppBaseWindow > &");
+    if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("ofxImGui::Gui::setup",3,"BaseTheme *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t,0))){
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_BaseTheme,0))){
+      SWIG_fail_ptr("Gui_setup",3,SWIGTYPE_p_BaseTheme); }  result = (ofxImGui::SetupState)(arg1)->setup(*arg2,arg3);
+    lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup__SWIG_11(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::shared_ptr< ofAppBaseWindow > *arg2 = 0 ; ofxImGui::SetupState result; SWIG_check_num_args("ofxImGui::Gui::setup",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setup",1,"ofxImGui::Gui *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofxImGui::Gui::setup",2,"std::shared_ptr< ofAppBaseWindow > &");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setup",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t,0))){
+      SWIG_fail_ptr("Gui_setup",2,SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t); } 
+    result = (ofxImGui::SetupState)(arg1)->setup(*arg2); lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
+    return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setup(lua_State* L) { int argc; int argv[8]={ 1,2,3,4,5,6,7,8} ; argc = lua_gettop(L); if (argc == 1) {
+    int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { return _wrap_Gui_setup__SWIG_5(L);}  }  if (argc == 2) { int _v = 0; { void *ptr;
       if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
        else { _v = 1; }  }  if (_v) { { void *ptr;
         if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
-         else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[2]); }  if (_v) { return _wrap_Gui_setup__SWIG_0(L);}  }  }
-     }  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Gui_setup'\n" "  Possible C/C++ prototypes are:\n"
-  "    ofxImGui::Gui::setup(BaseTheme *,bool)\n" "    ofxImGui::Gui::setup(BaseTheme *)\n" "    ofxImGui::Gui::setup()\n");
-  lua_error(L);return 0; }
+         else { _v = 1; }  }  if (_v) { return _wrap_Gui_setup__SWIG_4(L);}  }  }  if (argc == 2) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t, SWIG_POINTER_NO_NULL)) {
+          _v = 0; }  else { _v = 1; }  }  if (_v) { return _wrap_Gui_setup__SWIG_11(L);}  }  }  if (argc == 3) { int _v = 0; {
+      void *ptr; if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) {
+        _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t, SWIG_POINTER_NO_NULL)) {
+          _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
+           else { _v = 1; }  }  if (_v) { return _wrap_Gui_setup__SWIG_10(L);}  }  }  }  if (argc == 3) { int _v = 0; {
+      void *ptr; if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) {
+        _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
+         else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[2]); }  if (_v) { return _wrap_Gui_setup__SWIG_3(L);}  }  }
+     }  if (argc == 4) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
+         else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[2]); }  if (_v) { { void *ptr;
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_ImGuiConfigFlags, SWIG_POINTER_NO_NULL)) {
+              _v = 0; }  else { _v = 1; }  }  if (_v) { return _wrap_Gui_setup__SWIG_2(L);}  }  }  }  }  if (argc == 4) {
+    int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t, SWIG_POINTER_NO_NULL)) {
+          _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
+           else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[3]); }  if (_v) { return _wrap_Gui_setup__SWIG_9(L);}  }  }
+       }  }  if (argc == 5) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t, SWIG_POINTER_NO_NULL)) {
+          _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
+           else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[3]); }  if (_v) { { void *ptr;
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_ImGuiConfigFlags, SWIG_POINTER_NO_NULL)) {
+                _v = 0; }  else { _v = 1; }  }  if (_v) { return _wrap_Gui_setup__SWIG_8(L);}  }  }  }  }  }  if (argc == 5) {
+    int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
+         else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[2]); }  if (_v) { { void *ptr;
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_ImGuiConfigFlags, SWIG_POINTER_NO_NULL)) {
+              _v = 0; }  else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[4]); }  if (_v) {
+              return _wrap_Gui_setup__SWIG_1(L);}  }  }  }  }  }  if (argc == 6) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
+         else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[2]); }  if (_v) { { void *ptr;
+            if (lua_isuserdata(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_ImGuiConfigFlags, SWIG_POINTER_NO_NULL)) {
+              _v = 0; }  else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[4]); }  if (_v) { {
+                _v = lua_isboolean(L,argv[5]); }  if (_v) { return _wrap_Gui_setup__SWIG_0(L);}  }  }  }  }  }  } 
+  if (argc == 6) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t, SWIG_POINTER_NO_NULL)) {
+          _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
+           else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[3]); }  if (_v) { { void *ptr;
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_ImGuiConfigFlags, SWIG_POINTER_NO_NULL)) {
+                _v = 0; }  else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[5]); }  if (_v) {
+                return _wrap_Gui_setup__SWIG_7(L);}  }  }  }  }  }  }  if (argc == 7) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_std__shared_ptrT_ofAppBaseWindow_t, SWIG_POINTER_NO_NULL)) {
+          _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+          if (SWIG_isptrtype(L,argv[2])==0 || SWIG_ConvertPtr(L,argv[2], (void **) &ptr, SWIGTYPE_p_BaseTheme, 0)) { _v = 0; }
+           else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[3]); }  if (_v) { { void *ptr;
+              if (lua_isuserdata(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_ImGuiConfigFlags, SWIG_POINTER_NO_NULL)) {
+                _v = 0; }  else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[5]); }  if (_v) { {
+                  _v = lua_isboolean(L,argv[6]); }  if (_v) { return _wrap_Gui_setup__SWIG_6(L);}  }  }  }  }  }  }  } 
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Gui_setup'\n" "  Possible C/C++ prototypes are:\n"
+  "    ofxImGui::Gui::setup(BaseTheme *,bool,ImGuiConfigFlags,bool,bool)\n"
+  "    ofxImGui::Gui::setup(BaseTheme *,bool,ImGuiConfigFlags,bool)\n"
+  "    ofxImGui::Gui::setup(BaseTheme *,bool,ImGuiConfigFlags)\n" "    ofxImGui::Gui::setup(BaseTheme *,bool)\n"
+  "    ofxImGui::Gui::setup(BaseTheme *)\n" "    ofxImGui::Gui::setup()\n"
+  "    ofxImGui::Gui::setup(std::shared_ptr< ofAppBaseWindow > &,BaseTheme *,bool,ImGuiConfigFlags,bool,bool)\n"
+  "    ofxImGui::Gui::setup(std::shared_ptr< ofAppBaseWindow > &,BaseTheme *,bool,ImGuiConfigFlags,bool)\n"
+  "    ofxImGui::Gui::setup(std::shared_ptr< ofAppBaseWindow > &,BaseTheme *,bool,ImGuiConfigFlags)\n"
+  "    ofxImGui::Gui::setup(std::shared_ptr< ofAppBaseWindow > &,BaseTheme *,bool)\n"
+  "    ofxImGui::Gui::setup(std::shared_ptr< ofAppBaseWindow > &,BaseTheme *)\n"
+  "    ofxImGui::Gui::setup(std::shared_ptr< ofAppBaseWindow > &)\n"); lua_error(L);return 0; }
 static int _wrap_Gui_exit(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
     SWIG_check_num_args("ofxImGui::Gui::exit",1,1)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::exit",1,"ofxImGui::Gui *");
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
       SWIG_fail_ptr("Gui_exit",1,SWIGTYPE_p_ofxImGui__Gui); }  (arg1)->exit(); return SWIG_arg; fail: SWIGUNUSED; } 
   lua_error(L); return 0; }
+static int _wrap_Gui_isInSharedMode(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ; bool result;
+    SWIG_check_num_args("ofxImGui::Gui::isInSharedMode",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::isInSharedMode",1,"ofxImGui::Gui const *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_isInSharedMode",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    result = (bool)((ofxImGui::Gui const *)arg1)->isInSharedMode(); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+    return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
 static int _wrap_Gui_begin(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
     SWIG_check_num_args("ofxImGui::Gui::begin",1,1)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::begin",1,"ofxImGui::Gui *");
@@ -3038,6 +3414,264 @@ static int _wrap_Gui_draw(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg
     if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
       SWIG_fail_ptr("Gui_draw",1,SWIGTYPE_p_ofxImGui__Gui); }  (arg1)->draw(); return SWIG_arg; fail: SWIGUNUSED; } 
   lua_error(L); return 0; }
+static int _wrap_Gui_setDefaultFont__SWIG_0(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    int arg2 ; bool result; SWIG_check_num_args("ofxImGui::Gui::setDefaultFont",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setDefaultFont",1,"ofxImGui::Gui *");
+    if(!lua_isnumber(L,2)) SWIG_fail_arg("ofxImGui::Gui::setDefaultFont",2,"int");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setDefaultFont",1,SWIGTYPE_p_ofxImGui__Gui); }  arg2 = (int)lua_tonumber(L, 2);
+    result = (bool)(arg1)->setDefaultFont(arg2); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg;
+    fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setDefaultFont__SWIG_1(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    ImFont *arg2 = (ImFont *) 0 ; bool result; SWIG_check_num_args("ofxImGui::Gui::setDefaultFont",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setDefaultFont",1,"ofxImGui::Gui *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::setDefaultFont",2,"ImFont *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_setDefaultFont",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_ImFont,0))){
+      SWIG_fail_ptr("Gui_setDefaultFont",2,SWIGTYPE_p_ImFont); }  result = (bool)(arg1)->setDefaultFont(arg2);
+    lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_setDefaultFont(lua_State* L) { int argc; int argv[3]={ 1,2,3} ; argc = lua_gettop(L); if (argc == 2) {
+    int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_ImFont, 0)) { _v = 0; }
+         else { _v = 1; }  }  if (_v) { return _wrap_Gui_setDefaultFont__SWIG_1(L);}  }  }  if (argc == 2) { int _v = 0; {
+      void *ptr; if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) {
+        _v = 0; }  else { _v = 1; }  }  if (_v) { { _v = lua_isnumber(L,argv[1]); }  if (_v) {
+        return _wrap_Gui_setDefaultFont__SWIG_0(L);}  }  } 
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Gui_setDefaultFont'\n" "  Possible C/C++ prototypes are:\n"
+  "    ofxImGui::Gui::setDefaultFont(int)\n" "    ofxImGui::Gui::setDefaultFont(ImFont *)\n"); lua_error(L);return 0; }
+static int _wrap_Gui_addFont__SWIG_0(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::string *arg2 = 0 ; float arg3 ; ImFontConfig *arg4 = (ImFontConfig *) 0 ; ImWchar *arg5 = (ImWchar *) 0 ; bool arg6 ;
+    std::string temp2 ; ImFont *result = 0 ; SWIG_check_num_args("ofxImGui::Gui::addFont",6,6)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::addFont",1,"ofxImGui::Gui *");
+    if(!lua_isstring(L,2)) SWIG_fail_arg("ofxImGui::Gui::addFont",2,"std::string const &");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("ofxImGui::Gui::addFont",3,"float");
+    if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("ofxImGui::Gui::addFont",4,"ImFontConfig const *");
+    if(!SWIG_isptrtype(L,5)) SWIG_fail_arg("ofxImGui::Gui::addFont",5,"ImWchar const *");
+    if(!lua_isboolean(L,6)) SWIG_fail_arg("ofxImGui::Gui::addFont",6,"bool");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_addFont",1,SWIGTYPE_p_ofxImGui__Gui); }  { size_t len; const char *ptr = lua_tolstring(L, 2, &len);
+      temp2.assign(ptr, len); arg2=&temp2; }  arg3 = (float)lua_tonumber(L, 3);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_ImFontConfig,0))){
+      SWIG_fail_ptr("Gui_addFont",4,SWIGTYPE_p_ImFontConfig); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_ImWchar,0))){
+      SWIG_fail_ptr("Gui_addFont",5,SWIGTYPE_p_ImWchar); }  arg6 = (lua_toboolean(L, 6)!=0);
+    result = (ImFont *)(arg1)->addFont((std::string const &)*arg2,arg3,(ImFontConfig const *)arg4,(ImWchar const *)arg5,arg6);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImFont,0); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_Gui_addFont__SWIG_1(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::string *arg2 = 0 ; float arg3 ; ImFontConfig *arg4 = (ImFontConfig *) 0 ; ImWchar *arg5 = (ImWchar *) 0 ;
+    std::string temp2 ; ImFont *result = 0 ; SWIG_check_num_args("ofxImGui::Gui::addFont",5,5)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::addFont",1,"ofxImGui::Gui *");
+    if(!lua_isstring(L,2)) SWIG_fail_arg("ofxImGui::Gui::addFont",2,"std::string const &");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("ofxImGui::Gui::addFont",3,"float");
+    if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("ofxImGui::Gui::addFont",4,"ImFontConfig const *");
+    if(!SWIG_isptrtype(L,5)) SWIG_fail_arg("ofxImGui::Gui::addFont",5,"ImWchar const *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_addFont",1,SWIGTYPE_p_ofxImGui__Gui); }  { size_t len; const char *ptr = lua_tolstring(L, 2, &len);
+      temp2.assign(ptr, len); arg2=&temp2; }  arg3 = (float)lua_tonumber(L, 3);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_ImFontConfig,0))){
+      SWIG_fail_ptr("Gui_addFont",4,SWIGTYPE_p_ImFontConfig); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_ImWchar,0))){
+      SWIG_fail_ptr("Gui_addFont",5,SWIGTYPE_p_ImWchar); } 
+    result = (ImFont *)(arg1)->addFont((std::string const &)*arg2,arg3,(ImFontConfig const *)arg4,(ImWchar const *)arg5);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImFont,0); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_Gui_addFont__SWIG_2(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::string *arg2 = 0 ; float arg3 ; ImFontConfig *arg4 = (ImFontConfig *) 0 ; std::string temp2 ; ImFont *result = 0 ;
+    SWIG_check_num_args("ofxImGui::Gui::addFont",4,4)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::addFont",1,"ofxImGui::Gui *");
+    if(!lua_isstring(L,2)) SWIG_fail_arg("ofxImGui::Gui::addFont",2,"std::string const &");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("ofxImGui::Gui::addFont",3,"float");
+    if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("ofxImGui::Gui::addFont",4,"ImFontConfig const *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_addFont",1,SWIGTYPE_p_ofxImGui__Gui); }  { size_t len; const char *ptr = lua_tolstring(L, 2, &len);
+      temp2.assign(ptr, len); arg2=&temp2; }  arg3 = (float)lua_tonumber(L, 3);
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_ImFontConfig,0))){
+      SWIG_fail_ptr("Gui_addFont",4,SWIGTYPE_p_ImFontConfig); } 
+    result = (ImFont *)(arg1)->addFont((std::string const &)*arg2,arg3,(ImFontConfig const *)arg4);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImFont,0); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_Gui_addFont__SWIG_3(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::string *arg2 = 0 ; float arg3 ; std::string temp2 ; ImFont *result = 0 ;
+    SWIG_check_num_args("ofxImGui::Gui::addFont",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::addFont",1,"ofxImGui::Gui *");
+    if(!lua_isstring(L,2)) SWIG_fail_arg("ofxImGui::Gui::addFont",2,"std::string const &");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("ofxImGui::Gui::addFont",3,"float");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_addFont",1,SWIGTYPE_p_ofxImGui__Gui); }  { size_t len; const char *ptr = lua_tolstring(L, 2, &len);
+      temp2.assign(ptr, len); arg2=&temp2; }  arg3 = (float)lua_tonumber(L, 3);
+    result = (ImFont *)(arg1)->addFont((std::string const &)*arg2,arg3);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImFont,0); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_Gui_addFont__SWIG_4(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    std::string *arg2 = 0 ; std::string temp2 ; ImFont *result = 0 ; SWIG_check_num_args("ofxImGui::Gui::addFont",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::addFont",1,"ofxImGui::Gui *");
+    if(!lua_isstring(L,2)) SWIG_fail_arg("ofxImGui::Gui::addFont",2,"std::string const &");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_addFont",1,SWIGTYPE_p_ofxImGui__Gui); }  { size_t len; const char *ptr = lua_tolstring(L, 2, &len);
+      temp2.assign(ptr, len); arg2=&temp2; }  result = (ImFont *)(arg1)->addFont((std::string const &)*arg2);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImFont,0); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_Gui_addFont(lua_State* L) { int argc; int argv[7]={ 1,2,3,4,5,6,7} ; argc = lua_gettop(L); if (argc == 2) {
+    int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) { return _wrap_Gui_addFont__SWIG_4(L);}  }  } 
+  if (argc == 3) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) { { _v = lua_isnumber(L,argv[2]); }  if (_v) {
+          return _wrap_Gui_addFont__SWIG_3(L);}  }  }  }  if (argc == 4) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) { { _v = lua_isnumber(L,argv[2]); }  if (_v) {
+          { void *ptr;
+            if (SWIG_isptrtype(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_ImFontConfig, 0)) {
+              _v = 0; }  else { _v = 1; }  }  if (_v) { return _wrap_Gui_addFont__SWIG_2(L);}  }  }  }  }  if (argc == 5) {
+    int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) { { _v = lua_isnumber(L,argv[2]); }  if (_v) {
+          { void *ptr;
+            if (SWIG_isptrtype(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_ImFontConfig, 0)) {
+              _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+              if (SWIG_isptrtype(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_ImWchar, 0)) { _v = 0; }
+               else { _v = 1; }  }  if (_v) { return _wrap_Gui_addFont__SWIG_1(L);}  }  }  }  }  }  if (argc == 6) { int _v = 0;
+    { void *ptr; if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) {
+        _v = 0; }  else { _v = 1; }  }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) { { _v = lua_isnumber(L,argv[2]); }
+         if (_v) { { void *ptr;
+            if (SWIG_isptrtype(L,argv[3])==0 || SWIG_ConvertPtr(L,argv[3], (void **) &ptr, SWIGTYPE_p_ImFontConfig, 0)) {
+              _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+              if (SWIG_isptrtype(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_ImWchar, 0)) { _v = 0; }
+               else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[5]); }  if (_v) { return _wrap_Gui_addFont__SWIG_0(L);}
+               }  }  }  }  }  }  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Gui_addFont'\n"
+  "  Possible C/C++ prototypes are:\n"
+  "    ofxImGui::Gui::addFont(std::string const &,float,ImFontConfig const *,ImWchar const *,bool)\n"
+  "    ofxImGui::Gui::addFont(std::string const &,float,ImFontConfig const *,ImWchar const *)\n"
+  "    ofxImGui::Gui::addFont(std::string const &,float,ImFontConfig const *)\n"
+  "    ofxImGui::Gui::addFont(std::string const &,float)\n" "    ofxImGui::Gui::addFont(std::string const &)\n");
+  lua_error(L);return 0; }
+static int _wrap_Gui_addFontFromMemory__SWIG_0(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    void *arg2 = (void *) 0 ; int arg3 ; float arg4 ; ImFontConfig *arg5 = (ImFontConfig *) 0 ; ImWchar *arg6 = (ImWchar *) 0 ;
+    bool arg7 ; ImFont *result = 0 ; SWIG_check_num_args("ofxImGui::Gui::addFontFromMemory",7,7)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",1,"ofxImGui::Gui *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",2,"void *");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",3,"int");
+    if(!lua_isnumber(L,4)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",4,"float");
+    if(!SWIG_isptrtype(L,5)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",5,"ImFontConfig const *");
+    if(!SWIG_isptrtype(L,6)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",6,"ImWchar const *");
+    if(!lua_isboolean(L,7)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",7,"bool");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_addFontFromMemory",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"Gui_addFontFromMemory"); arg3 = (int)lua_tonumber(L, 3);
+    arg4 = (float)lua_tonumber(L, 4); if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_ImFontConfig,0))){
+      SWIG_fail_ptr("Gui_addFontFromMemory",5,SWIGTYPE_p_ImFontConfig); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,6,(void**)&arg6,SWIGTYPE_p_ImWchar,0))){
+      SWIG_fail_ptr("Gui_addFontFromMemory",6,SWIGTYPE_p_ImWchar); }  arg7 = (lua_toboolean(L, 7)!=0);
+    result = (ImFont *)(arg1)->addFontFromMemory(arg2,arg3,arg4,(ImFontConfig const *)arg5,(ImWchar const *)arg6,arg7);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImFont,0); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_Gui_addFontFromMemory__SWIG_1(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    void *arg2 = (void *) 0 ; int arg3 ; float arg4 ; ImFontConfig *arg5 = (ImFontConfig *) 0 ; ImWchar *arg6 = (ImWchar *) 0 ;
+    ImFont *result = 0 ; SWIG_check_num_args("ofxImGui::Gui::addFontFromMemory",6,6)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",1,"ofxImGui::Gui *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",2,"void *");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",3,"int");
+    if(!lua_isnumber(L,4)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",4,"float");
+    if(!SWIG_isptrtype(L,5)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",5,"ImFontConfig const *");
+    if(!SWIG_isptrtype(L,6)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",6,"ImWchar const *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_addFontFromMemory",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"Gui_addFontFromMemory"); arg3 = (int)lua_tonumber(L, 3);
+    arg4 = (float)lua_tonumber(L, 4); if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_ImFontConfig,0))){
+      SWIG_fail_ptr("Gui_addFontFromMemory",5,SWIGTYPE_p_ImFontConfig); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,6,(void**)&arg6,SWIGTYPE_p_ImWchar,0))){
+      SWIG_fail_ptr("Gui_addFontFromMemory",6,SWIGTYPE_p_ImWchar); } 
+    result = (ImFont *)(arg1)->addFontFromMemory(arg2,arg3,arg4,(ImFontConfig const *)arg5,(ImWchar const *)arg6);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImFont,0); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_Gui_addFontFromMemory__SWIG_2(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    void *arg2 = (void *) 0 ; int arg3 ; float arg4 ; ImFontConfig *arg5 = (ImFontConfig *) 0 ; ImFont *result = 0 ;
+    SWIG_check_num_args("ofxImGui::Gui::addFontFromMemory",5,5)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",1,"ofxImGui::Gui *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",2,"void *");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",3,"int");
+    if(!lua_isnumber(L,4)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",4,"float");
+    if(!SWIG_isptrtype(L,5)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",5,"ImFontConfig const *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_addFontFromMemory",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"Gui_addFontFromMemory"); arg3 = (int)lua_tonumber(L, 3);
+    arg4 = (float)lua_tonumber(L, 4); if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&arg5,SWIGTYPE_p_ImFontConfig,0))){
+      SWIG_fail_ptr("Gui_addFontFromMemory",5,SWIGTYPE_p_ImFontConfig); } 
+    result = (ImFont *)(arg1)->addFontFromMemory(arg2,arg3,arg4,(ImFontConfig const *)arg5);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImFont,0); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_Gui_addFontFromMemory__SWIG_3(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    void *arg2 = (void *) 0 ; int arg3 ; float arg4 ; ImFont *result = 0 ;
+    SWIG_check_num_args("ofxImGui::Gui::addFontFromMemory",4,4)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",1,"ofxImGui::Gui *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",2,"void *");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",3,"int");
+    if(!lua_isnumber(L,4)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",4,"float");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_addFontFromMemory",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"Gui_addFontFromMemory"); arg3 = (int)lua_tonumber(L, 3);
+    arg4 = (float)lua_tonumber(L, 4); result = (ImFont *)(arg1)->addFontFromMemory(arg2,arg3,arg4);
+    SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImFont,0); SWIG_arg++;  return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L);
+  return 0; }
+static int _wrap_Gui_addFontFromMemory__SWIG_4(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    void *arg2 = (void *) 0 ; int arg3 ; ImFont *result = 0 ; SWIG_check_num_args("ofxImGui::Gui::addFontFromMemory",3,3)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",1,"ofxImGui::Gui *");
+    if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",2,"void *");
+    if(!lua_isnumber(L,3)) SWIG_fail_arg("ofxImGui::Gui::addFontFromMemory",3,"int");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_addFontFromMemory",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"Gui_addFontFromMemory"); arg3 = (int)lua_tonumber(L, 3);
+    result = (ImFont *)(arg1)->addFontFromMemory(arg2,arg3); SWIG_NewPointerObj(L,result,SWIGTYPE_p_ImFont,0); SWIG_arg++; 
+    return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
+static int _wrap_Gui_addFontFromMemory(lua_State* L) { int argc; int argv[8]={ 1,2,3,4,5,6,7,8} ; argc = lua_gettop(L);
+  if (argc == 3) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, 0, 0)) { _v = 0; }  else { _v = 1; }  } 
+      if (_v) { { _v = lua_isnumber(L,argv[2]); }  if (_v) { return _wrap_Gui_addFontFromMemory__SWIG_4(L);}  }  }  } 
+  if (argc == 4) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, 0, 0)) { _v = 0; }  else { _v = 1; }  } 
+      if (_v) { { _v = lua_isnumber(L,argv[2]); }  if (_v) { { _v = lua_isnumber(L,argv[3]); }  if (_v) {
+            return _wrap_Gui_addFontFromMemory__SWIG_3(L);}  }  }  }  }  if (argc == 5) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, 0, 0)) { _v = 0; }  else { _v = 1; }  } 
+      if (_v) { { _v = lua_isnumber(L,argv[2]); }  if (_v) { { _v = lua_isnumber(L,argv[3]); }  if (_v) { { void *ptr;
+              if (SWIG_isptrtype(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_ImFontConfig, 0)) {
+                _v = 0; }  else { _v = 1; }  }  if (_v) { return _wrap_Gui_addFontFromMemory__SWIG_2(L);}  }  }  }  }  } 
+  if (argc == 6) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, 0, 0)) { _v = 0; }  else { _v = 1; }  } 
+      if (_v) { { _v = lua_isnumber(L,argv[2]); }  if (_v) { { _v = lua_isnumber(L,argv[3]); }  if (_v) { { void *ptr;
+              if (SWIG_isptrtype(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_ImFontConfig, 0)) {
+                _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+                if (SWIG_isptrtype(L,argv[5])==0 || SWIG_ConvertPtr(L,argv[5], (void **) &ptr, SWIGTYPE_p_ImWchar, 0)) {
+                  _v = 0; }  else { _v = 1; }  }  if (_v) { return _wrap_Gui_addFontFromMemory__SWIG_1(L);}  }  }  }  }  }  } 
+  if (argc == 7) { int _v = 0; { void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_ofxImGui__Gui, 0)) { _v = 0; }
+       else { _v = 1; }  }  if (_v) { { void *ptr;
+        if (SWIG_isptrtype(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, 0, 0)) { _v = 0; }  else { _v = 1; }  } 
+      if (_v) { { _v = lua_isnumber(L,argv[2]); }  if (_v) { { _v = lua_isnumber(L,argv[3]); }  if (_v) { { void *ptr;
+              if (SWIG_isptrtype(L,argv[4])==0 || SWIG_ConvertPtr(L,argv[4], (void **) &ptr, SWIGTYPE_p_ImFontConfig, 0)) {
+                _v = 0; }  else { _v = 1; }  }  if (_v) { { void *ptr;
+                if (SWIG_isptrtype(L,argv[5])==0 || SWIG_ConvertPtr(L,argv[5], (void **) &ptr, SWIGTYPE_p_ImWchar, 0)) {
+                  _v = 0; }  else { _v = 1; }  }  if (_v) { { _v = lua_isboolean(L,argv[6]); }  if (_v) {
+                  return _wrap_Gui_addFontFromMemory__SWIG_0(L);}  }  }  }  }  }  }  } 
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Gui_addFontFromMemory'\n"
+  "  Possible C/C++ prototypes are:\n"
+  "    ofxImGui::Gui::addFontFromMemory(void *,int,float,ImFontConfig const *,ImWchar const *,bool)\n"
+  "    ofxImGui::Gui::addFontFromMemory(void *,int,float,ImFontConfig const *,ImWchar const *)\n"
+  "    ofxImGui::Gui::addFontFromMemory(void *,int,float,ImFontConfig const *)\n"
+  "    ofxImGui::Gui::addFontFromMemory(void *,int,float)\n" "    ofxImGui::Gui::addFontFromMemory(void *,int)\n");
+  lua_error(L);return 0; }
 static int _wrap_Gui_setTheme(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
     BaseTheme *arg2 = (BaseTheme *) 0 ; SWIG_check_num_args("ofxImGui::Gui::setTheme",2,2)
     if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::setTheme",1,"ofxImGui::Gui *");
@@ -3142,6 +3776,21 @@ static int _wrap_Gui_loadTexture(lua_State* L) { int argc; int argv[4]={ 1,2,3,4
   SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Gui_loadTexture'\n" "  Possible C/C++ prototypes are:\n"
   "    ofxImGui::Gui::loadTexture(std::string const &)\n" "    ofxImGui::Gui::loadTexture(ofTexture &,std::string const &)\n");
   lua_error(L);return 0; }
+static int _wrap_Gui_afterDraw(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    ofEventArgs *arg2 = 0 ; SWIG_check_num_args("ofxImGui::Gui::afterDraw",2,2)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::afterDraw",1,"ofxImGui::Gui *");
+    if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofxImGui::Gui::afterDraw",2,"ofEventArgs &");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_afterDraw",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_ofEventArgs,0))){
+      SWIG_fail_ptr("Gui_afterDraw",2,SWIGTYPE_p_ofEventArgs); }  (arg1)->afterDraw(*arg2); return SWIG_arg; fail: SWIGUNUSED; }
+   lua_error(L); return 0; }
+static int _wrap_Gui_drawOfxImGuiDebugWindow(lua_State* L) { { int SWIG_arg = 0; ofxImGui::Gui *arg1 = (ofxImGui::Gui *) 0 ;
+    SWIG_check_num_args("ofxImGui::Gui::drawOfxImGuiDebugWindow",1,1)
+    if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofxImGui::Gui::drawOfxImGuiDebugWindow",1,"ofxImGui::Gui const *");
+    if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofxImGui__Gui,0))){
+      SWIG_fail_ptr("Gui_drawOfxImGuiDebugWindow",1,SWIGTYPE_p_ofxImGui__Gui); } 
+    ((ofxImGui::Gui const *)arg1)->drawOfxImGuiDebugWindow(); return SWIG_arg; fail: SWIGUNUSED; }  lua_error(L); return 0; }
 static void swig_delete_Gui(void *obj) {
 ofxImGui::Gui *arg1 = (ofxImGui::Gui *) obj;
 delete arg1;
@@ -3160,13 +3809,19 @@ static swig_lua_attribute swig_Gui_attributes[] = {
 static swig_lua_method swig_Gui_methods[]= {
     { "setup", _wrap_Gui_setup},
     { "exit", _wrap_Gui_exit},
+    { "isInSharedMode", _wrap_Gui_isInSharedMode},
     { "begin", _wrap_Gui_begin},
     { "c_end", _wrap_Gui_c_end},
     { "draw", _wrap_Gui_draw},
+    { "setDefaultFont", _wrap_Gui_setDefaultFont},
+    { "addFont", _wrap_Gui_addFont},
+    { "addFontFromMemory", _wrap_Gui_addFontFromMemory},
     { "setTheme", _wrap_Gui_setTheme},
     { "loadImage", _wrap_Gui_loadImage},
     { "loadPixels", _wrap_Gui_loadPixels},
     { "loadTexture", _wrap_Gui_loadTexture},
+    { "afterDraw", _wrap_Gui_afterDraw},
+    { "drawOfxImGuiDebugWindow", _wrap_Gui_drawOfxImGuiDebugWindow},
     {0,0}
 };
 static swig_lua_method swig_Gui_meta[] = {
@@ -3202,6 +3857,10 @@ static swig_lua_attribute swig_SwigModule_attributes[] = {
     {0,0,0}
 };
 static swig_lua_const_info swig_SwigModule_constants[]= {
+    {SWIG_LUA_CONSTTAB_INT("Error", (ofxImGui::Error))},
+    {SWIG_LUA_CONSTTAB_INT("Slave", (ofxImGui::Slave))},
+    {SWIG_LUA_CONSTTAB_INT("Master", (ofxImGui::Master))},
+    {SWIG_LUA_CONSTTAB_INT("Success", (ofxImGui::Success))},
     {0,0,0,0,0,0}
 };
 static swig_lua_method swig_SwigModule_methods[]= {
@@ -3209,6 +3868,7 @@ static swig_lua_method swig_SwigModule_methods[]= {
 };
 static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_string,
+&_wrap_class_ofxImGuiContext,
 &_wrap_class_Gui,
     0
 };
@@ -3232,11 +3892,19 @@ static swig_lua_namespace swig_SwigModule = {
 
 static swig_type_info _swigt__p_BaseTheme = {"_p_BaseTheme", "BaseTheme *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_GLuint = {"_p_GLuint", "GLuint *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ImFont = {"_p_ImFont", "ImFont *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ImFontConfig = {"_p_ImFontConfig", "ImFontConfig *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ImGuiConfigFlags = {"_p_ImGuiConfigFlags", "ImGuiConfigFlags *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ImGuiContext = {"_p_ImGuiContext", "ImGuiContext *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ImWchar = {"_p_ImWchar", "ImWchar *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|long long *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ofEventArgs = {"_p_ofEventArgs", "ofEventArgs *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ofImage = {"_p_ofImage", "ofImage *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ofPixels = {"_p_ofPixels", "ofPixels *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ofTexture = {"_p_ofTexture", "ofTexture *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ofxImGuiContext = {"_p_ofxImGuiContext", "ofxImGuiContext *", 0, 0, (void*)&_wrap_class_ofxImGuiContext, 0};
 static swig_type_info _swigt__p_ofxImGui__Gui = {"_p_ofxImGui__Gui", "ofxImGui::Gui *", 0, 0, (void*)&_wrap_class_Gui, 0};
+static swig_type_info _swigt__p_std__shared_ptrT_ofAppBaseWindow_t = {"_p_std__shared_ptrT_ofAppBaseWindow_t", "std::shared_ptr< ofAppBaseWindow > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)&_wrap_class_string, 0};
 static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "size_t *|unsigned int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_long_long = {"_p_unsigned_long_long", "uint64_t *|unsigned long long *", 0, 0, (void*)0, 0};
@@ -3244,11 +3912,19 @@ static swig_type_info _swigt__p_unsigned_long_long = {"_p_unsigned_long_long", "
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_BaseTheme,
   &_swigt__p_GLuint,
+  &_swigt__p_ImFont,
+  &_swigt__p_ImFontConfig,
+  &_swigt__p_ImGuiConfigFlags,
+  &_swigt__p_ImGuiContext,
+  &_swigt__p_ImWchar,
   &_swigt__p_long_long,
+  &_swigt__p_ofEventArgs,
   &_swigt__p_ofImage,
   &_swigt__p_ofPixels,
   &_swigt__p_ofTexture,
+  &_swigt__p_ofxImGuiContext,
   &_swigt__p_ofxImGui__Gui,
+  &_swigt__p_std__shared_ptrT_ofAppBaseWindow_t,
   &_swigt__p_std__string,
   &_swigt__p_unsigned_int,
   &_swigt__p_unsigned_long_long,
@@ -3256,11 +3932,19 @@ static swig_type_info *swig_type_initial[] = {
 
 static swig_cast_info _swigc__p_BaseTheme[] = {  {&_swigt__p_BaseTheme, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_GLuint[] = {  {&_swigt__p_GLuint, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ImFont[] = {  {&_swigt__p_ImFont, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ImFontConfig[] = {  {&_swigt__p_ImFontConfig, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ImGuiConfigFlags[] = {  {&_swigt__p_ImGuiConfigFlags, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ImGuiContext[] = {  {&_swigt__p_ImGuiContext, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ImWchar[] = {  {&_swigt__p_ImWchar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ofEventArgs[] = {  {&_swigt__p_ofEventArgs, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofImage[] = {  {&_swigt__p_ofImage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofPixels[] = {  {&_swigt__p_ofPixels, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofTexture[] = {  {&_swigt__p_ofTexture, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ofxImGuiContext[] = {  {&_swigt__p_ofxImGuiContext, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofxImGui__Gui[] = {  {&_swigt__p_ofxImGui__Gui, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__shared_ptrT_ofAppBaseWindow_t[] = {  {&_swigt__p_std__shared_ptrT_ofAppBaseWindow_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_int[] = {  {&_swigt__p_unsigned_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_long_long[] = {  {&_swigt__p_unsigned_long_long, 0, 0, 0},{0, 0, 0, 0}};
@@ -3268,11 +3952,19 @@ static swig_cast_info _swigc__p_unsigned_long_long[] = {  {&_swigt__p_unsigned_l
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_BaseTheme,
   _swigc__p_GLuint,
+  _swigc__p_ImFont,
+  _swigc__p_ImFontConfig,
+  _swigc__p_ImGuiConfigFlags,
+  _swigc__p_ImGuiContext,
+  _swigc__p_ImWchar,
   _swigc__p_long_long,
+  _swigc__p_ofEventArgs,
   _swigc__p_ofImage,
   _swigc__p_ofPixels,
   _swigc__p_ofTexture,
+  _swigc__p_ofxImGuiContext,
   _swigc__p_ofxImGui__Gui,
+  _swigc__p_std__shared_ptrT_ofAppBaseWindow_t,
   _swigc__p_std__string,
   _swigc__p_unsigned_int,
   _swigc__p_unsigned_long_long,
