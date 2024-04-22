@@ -1,0 +1,9 @@
+[submodule "libs/ofxPd"]
+	path = libs/ofxPd
+	url = https://github.com/danomatika/ofxPd
+[submodule "libs/ofxLua"]
+	path = libs/ofxLua
+	url = https://github.com/danomatika/ofxLua
+[submodule "libs/ofxMidi"]
+	path = libs/ofxMidi
+	url = https://github.com/danomatika/ofxMidi
