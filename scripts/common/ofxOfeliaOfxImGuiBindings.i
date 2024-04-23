@@ -21,6 +21,7 @@
 %typedef unsigned long long uint64_t;
 
 %include <stl.i>
+%include <stdint.i>
 %include <std_string.i>
 %include <std_vector.i>
 
