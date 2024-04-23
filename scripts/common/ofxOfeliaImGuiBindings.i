@@ -1,4 +1,4 @@
-// copied mostly from: https://github.com/RayquazaGX/swigimgui/blob/master/imgui.i
+// most of the code is copied from: https://github.com/RayquazaGX/swigimgui/blob/master/imgui.i
 
 // main MODULE
 %module ImGui
