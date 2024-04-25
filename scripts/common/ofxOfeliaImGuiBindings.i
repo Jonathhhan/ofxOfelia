@@ -1,11 +1,15 @@
-// most of the code is copied from: https://github.com/RayquazaGX/swigimgui/blob/master/imgui.i
+// copied mostly from: https://github.com/RayquazaGX/swigimgui/blob/master/imgui.i
+
 
 // main MODULE
 %module ImGui
+
+
 %{
 	#include "../../ofxImGui/libs/imgui/src/imgui.h"
     using namespace ImGui;
 %}
+
 
 // ----- C++ -----
 
@@ -23,6 +27,7 @@
 %include <std_string.i>
 %include <std_vector.i>
 
+
 //------
 // Custom changes
 //------
@@ -32,21 +37,10 @@
 %ignore operator ofVec4f;
 %ignore operator ofColor;
 
+
 //------
 // General tags
 //------
-
-%ignore TextV;
-%ignore TextColoredV;
-%ignore TextDisabledV;
-%ignore TextWrappedV;
-%ignore LabelTextV;
-%ignore BulletTextV;
-%ignore TreeNodeV;
-%ignore TreeNodeExV;
-%ignore SetTooltipV;
-%ignore LogTextV;
-%ignore ImGuiTextBuffer::appendfv;
 
 %ignore operator new(size_t, ImNewWrapper, void*);   // Ignored because SWIG doesn't support this operator
 %ignore operator delete(void*, ImNewWrapper, void*); // Ignored because SWIG doesn't support this operator
@@ -82,6 +76,7 @@
 %immutable ImGuiIO::BackendRendererName;
 %immutable ImDrawList::_OwnerName;
 
+
 //------
 // Array type tags
 //------
@@ -99,6 +94,7 @@
 %array_functions(ImColor, ImColorArray)
 %array_functions(ImGuiStorage, ImGuiStorageArray)
 %array_functions(ImGuiViewport, ImGuiViewportArray)
+
 
 //------
 // Typemap tags + Import the headers
@@ -171,6 +167,7 @@
 
 %clear size_t;
 
+
 //------
 // Helper functions
 //------
@@ -195,6 +192,7 @@
 
 %}
 
+
 //------
 // Macros and aliases
 //------
@@ -213,6 +211,7 @@ REG_CONST(float, FLT_MIN)
 REG_CONST(float, FLT_MAX)
 //swig extras
 REG_ALIAS(IMGUI_CHECKVERSION, _SWIGExtra_IMGUI_CHECKVERSION)
+
 
 //------
 // Lua wrapper functions
@@ -295,6 +294,7 @@ REG_ALIAS(IMGUI_CHECKVERSION, _SWIGExtra_IMGUI_CHECKVERSION)
     end
 }
 #endif
+
 
 // ----- Bindings------
 

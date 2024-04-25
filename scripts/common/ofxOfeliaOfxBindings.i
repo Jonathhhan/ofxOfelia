@@ -1,13 +1,21 @@
-// SWIG (http://www.swig.org) interface wrapper for the openFrameworks core API
-// 2014-17 Dan Wilcox <danomatika@gmail.com>
-
-// main MODULE
+// addon MODULE
 %module ofx
+
+
 %import "../../ofxLua/swig/openFrameworks.i"
+
 %{
 	#include "../../ofxVolumetrics/src/ofxVolumetrics.h"
 	#include "../../ofxStableDiffusion/libs/stable-diffusion/include/stable-diffusion.h"
+	#include "../../ofxImGui/src/Gui.h"
+	using namespace ofxImGui;
 %}
+
+
+// ofxImGui
+%ignore operator bool;
+%rename(c_end) end;
+
 
 // ----- Renaming -----
 
@@ -21,8 +29,10 @@
 %rename("%(strip:[OFX_])s", %$isconstant) "";
 %rename("%(strip:[OFX_])s", %$isenumitem) "";
 
+
 // ----- Bindings------
 
 %include "../../ofxVolumetrics/src/ofxVolumetrics.h"
 %include "../../ofxVolumetrics/src/ofxImageSequencePlayer.h"
 %include "../../ofxStableDiffusion/libs/stable-diffusion/include/stable-diffusion.h"
+%include "../../ofxImGui/src/Gui.h"
