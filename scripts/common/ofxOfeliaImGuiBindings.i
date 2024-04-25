@@ -296,6 +296,13 @@ REG_ALIAS(IMGUI_CHECKVERSION, _SWIGExtra_IMGUI_CHECKVERSION)
 #endif
 
 
+// ----- Renaming -----
+
+/* strip "ImGui" from constants & enums */
+%rename("%(strip:[ImGui])s", %$isconstant) "";
+%rename("%(strip:[ImGui])s", %$isenumitem) "";
+
+
 // ----- Bindings------
 
 %include "../../ofxImGui/libs/imgui/src/imgui.h"
