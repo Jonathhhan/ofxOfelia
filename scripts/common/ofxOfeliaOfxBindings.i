@@ -34,6 +34,7 @@
 // ----- Bindings------
 
 %include "../../ofxAssimpModelLoader/src/ofxAssimpModelLoader.h"
+%include "../../ofxAssimpModelLoader/src/ofxAssimpAnimation.h"
 %include "../../ofxVolumetrics/src/ofxVolumetrics.h"
 %include "../../ofxVolumetrics/src/ofxImageSequencePlayer.h"
 %include "../../ofxStableDiffusion/libs/stable-diffusion/include/stable-diffusion.h"
