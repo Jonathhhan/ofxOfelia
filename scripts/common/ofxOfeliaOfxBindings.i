@@ -37,6 +37,7 @@
 
 
 // ----- Bindings------
+
 %include "../../ofxOpenCv/src/ofxCvBlob.h"
 %include "../../ofxOpenCv/src/ofxCvHaarFinder.h"
 %include "../../ofxOpenCv/src/ofxCvContourFinder.h"
