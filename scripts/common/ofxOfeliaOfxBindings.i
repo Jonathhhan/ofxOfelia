@@ -3,8 +3,10 @@
 
 
 %import "../../ofxLua/swig/openFrameworks.i"
+%import "../../../libs/openFrameworks/gl/ofGLBaseTypes.h"
 
 %{
+	#include "../../ofxOpenCv/src/ofxOpenCv.h"
 	#include "../../ofxAssimpModelLoader/src/ofxAssimpModelLoader.h"
 	#include "../../ofxVolumetrics/src/ofxVolumetrics.h"
 	#include "../../ofxStableDiffusion/libs/stable-diffusion/include/stable-diffusion.h"
@@ -16,6 +18,9 @@
 // ofxImGui
 %ignore operator bool;
 %rename(c_end) end;
+
+// ofxOpenCv
+%ignore operator &=;
 
 
 // ----- Renaming -----
@@ -32,7 +37,14 @@
 
 
 // ----- Bindings------
-
+%include "../../ofxOpenCv/src/ofxCvBlob.h"
+%include "../../ofxOpenCv/src/ofxCvHaarFinder.h"
+%include "../../ofxOpenCv/src/ofxCvContourFinder.h"
+%include "../../ofxOpenCv/src/ofxCvImage.h"
+%include "../../ofxOpenCv/src/ofxCvColorImage.h"
+%include "../../ofxOpenCv/src/ofxCvFloatImage.h"
+%include "../../ofxOpenCv/src/ofxCvGrayscaleImage.h"
+%include "../../ofxOpenCv/src/ofxCvShortImage.h"
 %include "../../ofxAssimpModelLoader/src/ofxAssimpModelLoader.h"
 %include "../../ofxAssimpModelLoader/src/ofxAssimpAnimation.h"
 %include "../../ofxVolumetrics/src/ofxVolumetrics.h"
