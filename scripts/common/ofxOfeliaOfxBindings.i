@@ -17,7 +17,8 @@
 
 // ofxImGui
 %ignore operator bool;
-%rename(c_end) end;
+%rename(beginGui) begin;
+%rename(endGui) end;
 
 // ofxOpenCv
 %ignore operator &=;
