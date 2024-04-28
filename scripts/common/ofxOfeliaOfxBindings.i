@@ -6,12 +6,15 @@
 %import "../../../libs/openFrameworks/gl/ofGLBaseTypes.h"
 
 %{
+	#include "../../ofxVectorGraphics/src/ofxVectorGraphics.h"
+	#include "../../ofxSvg/src/ofxSvg.h"
 	#include "../../ofxOpenCv/src/ofxOpenCv.h"
 	#include "../../ofxAssimpModelLoader/src/ofxAssimpModelLoader.h"
 	#include "../../ofxVolumetrics/src/ofxVolumetrics.h"
 	#include "../../ofxStableDiffusion/libs/stable-diffusion/include/stable-diffusion.h"
 	#include "../../ofxImGui/src/Gui.h"
 	using namespace ofxImGui;
+	using namespace ns_creeps;
 %}
 
 
@@ -22,6 +25,9 @@
 
 // ofxOpenCv
 %ignore operator &=;
+
+// ofxVectorGraphics
+%ignore operator |;
 
 
 // ----- Renaming -----
@@ -38,7 +44,9 @@
 
 
 // ----- Bindings------
-
+%include "../../ofxVectorGraphics/libs/CreEPS.hpp"
+%include "../../ofxVectorGraphics/src/ofxVectorGraphics.h"
+%include "../../ofxSvg/src/ofxSvg.h"
 %include "../../ofxOpenCv/src/ofxCvBlob.h"
 %include "../../ofxOpenCv/src/ofxCvHaarFinder.h"
 %include "../../ofxOpenCv/src/ofxCvContourFinder.h"
