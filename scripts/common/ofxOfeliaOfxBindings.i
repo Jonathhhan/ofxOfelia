@@ -22,6 +22,7 @@
 %ignore operator bool;
 %rename(beginGui) begin;
 %rename(endGui) end;
+%rename(ImGui) Gui;
 
 // ofxOpenCv
 %ignore operator &=;
