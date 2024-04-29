@@ -70,7 +70,6 @@ extern "C"
     int luaopen_pd(lua_State *L);
     int luaopen_glm(lua_State* L);
     int luaopen_ofx(lua_State* L);
-    int luaopen_ofxImGui(lua_State* L);
     int luaopen_ImGui(lua_State* L);
     int luaopen_print(lua_State *L);
 }
@@ -178,7 +177,6 @@ bool ofxOfeliaLua::init()
     luaopen_pd(L);
     luaopen_glm(L);
     luaopen_ofx(L);
-    luaopen_ofxImGui(L);
     luaopen_ImGui(L);
     luaopen_print(L);
     
@@ -190,7 +188,6 @@ bool ofxOfeliaLua::init()
     unpackModule(L, "pd", "of");
     unpackModule(L, "glm", "glm");
     unpackModule(L, "ofx", "ofx");
-    unpackModule(L, "ofxImGui", "ofxImGui");
     unpackModule(L, "ImGui", "ImGui");
     
     /* add GL preprocessor defines */
