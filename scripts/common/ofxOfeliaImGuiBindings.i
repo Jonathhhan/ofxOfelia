@@ -7,7 +7,7 @@
 
 %{
 	#include "../../ofxImGui/libs/imgui/src/imgui.h"
-    using namespace ImGui;
+	using namespace ImGui;
 %}
 
 
